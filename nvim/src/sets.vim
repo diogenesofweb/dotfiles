@@ -36,6 +36,11 @@ set colorcolumn=80
 
 set number
 " set relativenumber
+"
+augroup Markdown
+  autocmd!
+  autocmd FileType markdown set wrap
+augroup END
 
 :augroup numbertoggle
 :  autocmd!
