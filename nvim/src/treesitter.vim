@@ -32,6 +32,7 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "css",
     "vim",
+    "go",
     "lua"
   },
 }
