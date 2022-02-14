@@ -17,6 +17,7 @@ c = {"<cmd>bd<cr>", "Close Buffer"},
 w = {"<cmd>w<cr>", "Save (Write)"},
 
 y = {"<cmd>Format<cr>", "Format-prettier"},
+h = {"<cmd>noh<cr>", "No highlighting"},
 
 ['2'] = {"<cmd>Telescope lsp_document_symbols<cr>", "Doccument Symbols"},
 ['7'] = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Problem"},
@@ -29,6 +30,7 @@ e = {"<cmd>Lexplore <cr>", "Open Explorer"},
 b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Buffers"},
 f = {"<cmd>Telescope find_files<cr>", "Find Files"},
 s = {"<cmd>Telescope live_grep<cr>", "Text Search"},
+k = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
 t = {"<cmd>Telescope<cr>", "Telescope builtin"},
 
 v = {"<cmd>vsplit <cr>", "V Split"},
@@ -68,6 +70,7 @@ T = {
   t = {"<cmd>Telescope live_grep<cr>", "Text"},
   k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
   c = {"<cmd>Telescope commands<cr>", "Commands"},
+  q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
   },
 
 U = {
