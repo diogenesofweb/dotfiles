@@ -38,11 +38,15 @@
     "body": "const { ${2:prop} } = ${1:value}"
   },
   "const arrow function assignment": {
+    "prefix": "caf",
+    "body": "const ${1:name} = (${2:arguments}) => ${0}\n"
+  },
+  "const arrow function assignment with return": {
     "prefix": "cf",
     "body": "const ${1:name} = (${2:arguments}) => {\n\treturn ${0}\n}"
   },
   "const object": {
-    "prefix": "co",
+    "prefix": "cob",
     "body": "const ${1:name} = {\n\t${0}\n}"
   },
   "const array": {
@@ -124,16 +128,16 @@
     "body": "function ${1:name} (${2:arguments}) {\n\t${0}\n}"
   },
   "async function": {
-    "prefix": "asf",
+    "prefix": "asfn",
     "body": "async function (${1:arguments}) {\n\t${0}\n}"
-  },
-  "async arrow function": {
-    "prefix": "aa",
-    "body": "async (${1:arguments}) => {\n\t${0}\n}"
   },
   "arrow function": {
     "prefix": "af",
     "body": "(${1:arguments}) => ${2:statement}"
+  },
+  "async arrow function": {
+    "prefix": "aa",
+    "body": "async (${1:arguments}) => {\n\t${0}\n}"
   },
   "arrow function with destructuring": {
     "prefix": "fd",
@@ -289,12 +293,12 @@
   },
 
   "const variable": {
-    "prefix": "cconst",
+    "prefix": "dc",
     "body": "const ${1} = ${2}",
     "description": "const variable"
   },
   "let variable": {
-    "prefix": "llet",
+    "prefix": "dl",
     "body": "let ${1} = ${2}",
     "description": "let variable"
   },
@@ -308,26 +312,5 @@
     "prefix": "typed",
     "body": "/** @type {${1|string,number,boolean,string[],number[],boolean[]|}} */",
     "description": "Add type"
-  },
-
-  "vue data": {
-    "prefix": "vdata",
-    "body": "data: () => ({ ${1:key}: ${2:false}, ${3} }),\n${4}",
-    "description": "vue data()"
-  },
-  "vue components": {
-    "prefix": "vcomponents",
-    "body": "components: { \n\t${1:name}, \n},\n${2}",
-    "description": "vue components"
-  },
-  "vue props": {
-    "prefix": "vprops",
-    "body": "props: { ${1:name}: ${2|String,Number,Boolean,Array,Object,Function,Promise|}, ${3} },\n${4}",
-    "description": "vue props"
-  },
-  "vue setup": {
-    "prefix": "vsetup",
-    "body": "setup(${1:props}) {\n\t${2}\n}",
-    "description": "vue setup"
   }
 }

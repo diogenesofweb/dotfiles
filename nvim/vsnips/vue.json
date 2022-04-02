@@ -1,0 +1,22 @@
+{
+  "vue data": {
+    "prefix": "vdata",
+    "body": "data: () => ({ ${1:key}: ${2:false}, ${3} }),\n${4}",
+    "description": "vue data()"
+  },
+  "vue components": {
+    "prefix": "vcomponents",
+    "body": "components: { \n\t${1:name}, \n},\n${2}",
+    "description": "vue components"
+  },
+  "vue props": {
+    "prefix": "vprops",
+    "body": "props: { ${1:name}: ${2|String,Number,Boolean,Array,Object,Function,Promise|}, ${3} },\n${4}",
+    "description": "vue props"
+  },
+  "vue setup": {
+    "prefix": "vsetup",
+    "body": "setup(${1:props}) {\n\t${2}\n}",
+    "description": "vue setup"
+  }
+}
