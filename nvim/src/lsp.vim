@@ -197,8 +197,8 @@ cmp.setup({
 
     ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    -- ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    -- ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -221,7 +221,8 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
+		{ name = "nvim_lsp_signature_help" },
+    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 20},
     { name = 'vsnip' }, -- For vsnip users.
   }, {
     { name = 'buffer' },
