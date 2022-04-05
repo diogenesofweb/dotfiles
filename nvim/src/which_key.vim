@@ -32,17 +32,10 @@ f = {"<cmd>Telescope find_files<cr>", "Find Files"},
 s = {"<cmd>Telescope live_grep<cr>", "Text Search"},
 k = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
 t = {"<cmd>Telescope<cr>", "Telescope builtin"},
+o = {"<cmd>Telescope oldfiles<cr>", "List Recent Files"},
 
 v = {"<cmd>vsplit <cr>", "V Split"},
 -- h = {"<cmd>split <cr>", "H Split"},
-
-F = {
-  name = "Files",
-  f = {"<cmd>Telescope find_files<cr>", "Find File"},
-  r = {"<cmd>Telescope oldfiles<cr>", "List Recent Files"},
-  t = {"<cmd>Telescope live_grep<cr>", "Search Files By Text"},
-  n = {"<cmd>enew<cr>", "New file"},
-  },
 
 E = {
   name = 'File Explorer',
