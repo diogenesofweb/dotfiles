@@ -11,6 +11,7 @@ wk.register({
 ['`'] = {"<cmd>sp +term<cr>", "Terminal"},
 
 -- z = {"<cmd>q<cr>", "Zen mode"},
+-- z = {"<cmd>za<cr>", "Toggle Fold"},
 q = {"<cmd>q<cr>", "Quit"},
 x = {"<cmd>xa<cr>", "Save all & Quit"},
 c = {"<cmd>bd<cr>", "Close Buffer"},
@@ -25,7 +26,7 @@ h = {"<cmd>noh<cr>", "No highlighting"},
 a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
 
-e = {"<cmd>Lexplore <cr>", "Open Explorer"},
+e = {"<cmd>Lexplore<cr>", "Open Explorer"},
 -- b = {"<cmd>Telescope buffers<cr>", "List Buffers"},
 b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Buffers"},
 f = {"<cmd>Telescope find_files<cr>", "Find Files"},
@@ -43,13 +44,13 @@ E = {
   c = {"<cmd>Lexplore %:p:h<cr>", "Current File Directory"},
   },
 
-B = {
-  name = 'Buffers',
-  b = {"<cmd>Telescope buffers<cr>", "List All Buffers"},
-  q = {"<cmd>bd<cr>", "Close Current Buffer"},
-  r = {"<cmd>w | %bd | e#<cr>", "Close All Buffers But Current"},
-  x = {"<cmd>%bdelete<cr>", "Close All Buffers"},
-  },
+-- B = {
+--   name = 'Buffers',
+--   b = {"<cmd>Telescope buffers<cr>", "List All Buffers"},
+--   q = {"<cmd>bd<cr>", "Close Current Buffer"},
+--   r = {"<cmd>w | %bd | e#<cr>", "Close All Buffers But Current"},
+--   x = {"<cmd>%bdelete<cr>", "Close All Buffers"},
+--   },
 
 T = {
   name = "Telescope",
@@ -66,17 +67,17 @@ T = {
   q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
   },
 
-U = {
-  name = "UI",
-  c = {'<cmd>execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>', "Toggle Colorcolumn"},
-  n = {"<cmd>set nu!<cr>", "Toggle Line Numbers"},
-  r = {"<cmd>set rnu!<cr>", "Toggle Relative Line Numbers"},
-  },
+-- U = {
+--   name = "UI",
+--   c = {'<cmd>execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>', "Toggle Colorcolumn"},
+--   n = {"<cmd>set nu!<cr>", "Toggle Line Numbers"},
+--   r = {"<cmd>set rnu!<cr>", "Toggle Relative Line Numbers"},
+--   },
 
 l = {
   name = "LSP",
   a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
-  e = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Errors", },
+  e = {"<cmd>Telescope diagnostics<cr>", "Errors", },
   w = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics", },
   f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
   i = {"<cmd>LspInfo<cr>", "Info"},
@@ -86,7 +87,7 @@ l = {
   k = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
 
   l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-  q = {"<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix"},
+  q = {"<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix"},
   r = {"<cmd>Telescope lsp_references<cr>", "References"},
   R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
   s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
@@ -99,7 +100,7 @@ l = {
     l = {"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List workspace folders"},
     d = {"<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type definition"},
     e = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open float"},
-    q = {"<cmd>lua vim.diagnostic.set_loclist()<CR>", "Set loclist"},
+    q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Set loclist"},
     },
   },
 },
