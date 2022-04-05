@@ -19,6 +19,12 @@
       "args": "<C-/>"
     },
     {
+      "key": "a",
+      "name": "Toggle Fold",
+      "type": "command",
+      "command": "editor.toggleFold"
+    },
+    {
       "key": "w",
       "name": "Save (write)",
       "type": "command",
