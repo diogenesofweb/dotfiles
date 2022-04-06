@@ -8,8 +8,7 @@ wk.register({
 
 ['/'] = {"<cmd>CommentToggle<cr>", "Comment Toggle"},
 [';'] = {"<cmd>Telescope commands<cr>", "Commands"},
-['`'] = {"<cmd>sp +term<cr>", "Terminal"},
-
+-- ['`'] = {"<cmd>sp +term<cr>", "Terminal"},
 -- z = {"<cmd>q<cr>", "Zen mode"},
 -- z = {"<cmd>za<cr>", "Toggle Fold"},
 q = {"<cmd>q<cr>", "Quit"},
@@ -23,6 +22,7 @@ h = {"<cmd>noh<cr>", "No highlighting"},
 ['2'] = {"<cmd>Telescope lsp_document_symbols<cr>", "Doccument Symbols"},
 ['7'] = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Problem"},
 ['8'] = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Problem"},
+
 a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
 

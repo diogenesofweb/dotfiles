@@ -131,10 +131,31 @@
       "command": "workbench.action.gotoSymbol"
     },
     {
+      "key": "a",
+      "name": "Code Action / Quick Fix",
+      "type": "command",
+      "command": "editor.action.quickFix",
+      "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+      "key": "m",
+      "name": "Source Actions",
+      "type": "command",
+      "command": "editor.action.sourceAction",
+      "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
       "key": "l",
       "name": "LSP...",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "a",
+          "name": "Auto Fix",
+          "type": "command",
+          "command": "editor.action.autoFix",
+          "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
+        },
         {
           "key": ";",
           "name": "Refactor",
@@ -370,5 +391,8 @@
     "tab.activeBorder": "#271f0b"
   },
   "gruvboxMaterial.darkContrast": "hard",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "workbench.colorTheme": "Gruvbox Material Dark"
 }
