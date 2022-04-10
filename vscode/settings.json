@@ -394,5 +394,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Gruvbox Material Dark"
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.activityBar.visible": false
 }
