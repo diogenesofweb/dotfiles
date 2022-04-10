@@ -65,4 +65,5 @@ nnoremap <F2> <cmd>lua vim.lsp.buf.rename()<CR>
 
 :tnoremap <Esc> <C-\><C-n>
 
-
+" search for visually selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
