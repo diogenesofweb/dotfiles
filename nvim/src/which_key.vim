@@ -9,9 +9,8 @@ wk.register({
 ['/'] = {"<cmd>CommentToggle<cr>", "Comment Toggle"},
 [';'] = {"<cmd>Telescope commands<cr>", "Commands"},
 -- ['`'] = {"<cmd>sp +term<cr>", "Terminal"},
--- z = {"<cmd>q<cr>", "Zen mode"},
--- z = {"<cmd>za<cr>", "Toggle Fold"},
-q = {"<cmd>q<cr>", "Quit"},
+
+q = {"<cmd>mksession!<cr> | <cmd>q<cr>", "Save session & Quit"},
 x = {"<cmd>xa<cr>", "Save all & Quit"},
 c = {"<cmd>bd<cr>", "Close Buffer"},
 w = {"<cmd>w<cr>", "Save (Write)"},

@@ -46,7 +46,7 @@ Plug 'folke/which-key.nvim'
 Plug 'akinsho/bufferline.nvim'
 
 " Session 
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 " UI
 " Plug 'tomasiser/vim-code-dark'

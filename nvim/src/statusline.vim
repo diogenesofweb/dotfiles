@@ -4,8 +4,8 @@ set statusline=
 set statusline+=\ 
 set statusline+=%{StatuslineMode()}
 set statusline+=\ 
-set statusline+=%{ObsessionStatus()} 
-set statusline+=\ 
+" set statusline+=%{ObsessionStatus()} 
+" set statusline+=\ 
 set statusline+=%{b:gitbranch}
 set statusline+=%=
 set statusline+=%l
