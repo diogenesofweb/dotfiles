@@ -82,9 +82,10 @@
     "prefix": "ia",
     "body": "import ${2:*} as ${3:name} from '${1:module}'"
   },
-  "import module destructured": {
-    "prefix": "id",
-    "body": "import {$2} from '${1:module}'"
+  "Import external module.": {
+    "prefix": "import statement",
+    "body": ["import { $0 } from \"${1:module}\";"],
+    "description": "Import external module."
   },
 
   "this": {
@@ -275,11 +276,6 @@
     "body": ["setInterval(() => {", "\t$0", "}, ${1:interval});"],
     "description": "Set Interval Function"
   },
-  "Import external module.": {
-    "prefix": "import statement",
-    "body": ["import { $0 } from \"${1:module}\";"],
-    "description": "Import external module."
-  },
 
   "Region Start": {
     "prefix": "#region",
@@ -303,14 +299,14 @@
     "description": "let variable"
   },
 
-  "imp typed": {
-    "prefix": "ityped",
-    "body": "/** ${1|@typedef,@type|} {import(\"#typings/${2:file}\").${3:Name}} ${3:Name}*/",
+  "import type": {
+    "prefix": "itd",
+    "body": "/** ${1|@typedef,@type|} {import(\"#typings/${2:types}\").${3:Name}} ${3:Name}*/",
     "description": "Import type"
   },
-  "imp typedef": {
-    "prefix": "typed",
-    "body": "/** @type {${1|string,number,boolean,string[],number[],boolean[]|}} */",
+  "@type": {
+    "prefix": "td",
+    "body": "/** @type {${1|_,string,number,boolean,string[],number[],boolean[]|}} */",
     "description": "Add type"
   }
 }
