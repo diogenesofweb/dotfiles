@@ -1,4 +1,7 @@
 alias lt='ls --human-readable --size -1 -S --classify'
+alias ll='ls -AlF'
+alias la='ls -A'
+alias l='ls -CF'
 
 alias c='clear'
 
@@ -12,7 +15,7 @@ alias gaa='git add .'
 alias gco='git checkout'
 alias gb='git branch'
 
-alias nvim='nvim.appimage'
+# alias nvim='nvim.appimage'
 alias vi='nvim'
 alias vis='nvim -S'
 
