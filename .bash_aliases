@@ -1,7 +1,7 @@
-alias lt='ls --human-readable --size -1 -S --classify'
 alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='ls --human-readable --size -1 -S --classify'
 
 alias c='clear'
 
