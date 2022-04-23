@@ -56,7 +56,8 @@ YELLOW='\[\e[1;33m\]'
 PURPLE='\[\e[1;35m\]'
 nc='\[\e[0m\]'
 
-source /usr/lib/git-core/git-sh-prompt
+# source /usr/lib/git-core/git-sh-prompt
+source ~/.dotfiles/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=yes
 
 PS1="$YELLOW\w$nc$CYAN\$(__git_ps1)$nc\\n$GREEN\$$nc "
