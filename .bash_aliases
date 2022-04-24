@@ -15,7 +15,7 @@ alias gaa='git add .'
 alias gco='git checkout'
 alias gb='git branch'
 
-# alias nvim='nvim.appimage'
+alias nvim='nvim.appimage'
 alias vi='nvim'
 alias vis='nvim -S'
 
