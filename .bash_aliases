@@ -20,3 +20,5 @@ alias vi='nvim'
 alias vis='nvim -S'
 
 alias nd='npm run dev'
+
+alias downloads='cd ~/Downloads/'
