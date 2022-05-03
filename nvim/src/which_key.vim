@@ -61,6 +61,7 @@ T = {
   o = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
   r = {"<cmd>Telescope registers<cr>", "Registers"},
   t = {"<cmd>Telescope live_grep<cr>", "Text"},
+  s = {"<cmd>Telescope grep_string<cr>", "Find String"},
   k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
   c = {"<cmd>Telescope commands<cr>", "Commands"},
   q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
