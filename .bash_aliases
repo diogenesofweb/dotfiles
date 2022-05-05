@@ -4,11 +4,13 @@ alias l='ls -CF'
 alias lt='ls --human-readable --size -1 -S --classify'
 
 alias c='clear'
+alias downloads='cd ~/Downloads/'
+alias update='sudo apt update && apt list --upgradable'
+alias upgrade='sudo apt upgrade -y'
 
 alias gs='git status'
 alias gss='git status -s'
 alias gl='git log --graph --decorate --pretty=oneline --abbrev-commit'
-
 alias gcm='git commit -m'
 alias gcma='git add . && git commit -m'
 alias gaa='git add .'
@@ -20,5 +22,3 @@ alias vi='nvim'
 alias vis='nvim -S'
 
 alias nd='npm run dev'
-
-alias downloads='cd ~/Downloads/'
