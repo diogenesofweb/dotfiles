@@ -34,27 +34,21 @@ set cursorline
 set scrolloff=8
 set colorcolumn=80
 
+" set nonumber
 set number
 " set relativenumber
-"
+
 augroup Markdown
   autocmd!
   autocmd FileType markdown set wrap
 augroup END
 
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | set nonu | endif
-:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if ! &nu || &rnu        | set nornu | set nu   | endif
-:augroup END
-
 " :augroup numbertoggle
 " :  autocmd!
-" :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-" :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+" :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | set nonu | endif
+" :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if ! &nu || &rnu        | set nornu | set nu   | endif
 " :augroup END
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
-" You can't stop me
 " cmap w!! w !sudo tee %
