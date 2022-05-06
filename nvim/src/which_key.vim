@@ -22,7 +22,7 @@ h = {"<cmd>noh<cr>", "No highlighting"},
 ['7'] = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Problem"},
 ['8'] = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Problem"},
 
-a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
+a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
 
 e = {"<cmd>Lexplore<cr>", "Open Explorer"},
