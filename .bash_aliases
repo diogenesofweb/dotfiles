@@ -16,6 +16,8 @@ alias gcma='git add . && git commit -m'
 alias gaa='git add .'
 alias gco='git checkout'
 alias gb='git branch'
+alias gg='git pull'
+alias gp='git push'
 
 alias nvim='nvim.appimage'
 alias vi='nvim'
