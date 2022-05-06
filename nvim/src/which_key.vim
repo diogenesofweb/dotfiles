@@ -30,7 +30,7 @@ e = {"<cmd>Lexplore<cr>", "Open Explorer"},
 b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Buffers"},
 f = {"<cmd>Telescope find_files<cr>", "Find Files"},
 s = {"<cmd>Telescope live_grep<cr>", "Text Search"},
-k = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
+k = {"<cmd>Telescope quickfix<cr>", "Quickfix (qflist)"},
 t = {"<cmd>Telescope<cr>", "Telescope builtin"},
 o = {"<cmd>Telescope oldfiles<cr>", "List Recent Files"},
 
@@ -64,7 +64,7 @@ T = {
   s = {"<cmd>Telescope grep_string<cr>", "Find String"},
   k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
   c = {"<cmd>Telescope commands<cr>", "Commands"},
-  q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
+  q = {"<cmd>Telescope quickfix<cr>", "Quickfix list (qflist)"},
   },
 
 -- U = {
