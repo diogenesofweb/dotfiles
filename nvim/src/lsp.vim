@@ -38,8 +38,8 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 nvim_lsp.jsonls.setup {
   on_attach = on_attach,
@@ -221,11 +221,11 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources({
-		{ name = "nvim_lsp_signature_help" },
-    { name = 'nvim_lsp', keyword_length = 2, max_item_count = 20},
     { name = 'vsnip' }, -- For vsnip users.
+    { name = 'nvim_lsp', keyword_length = 3, max_item_count = 20},
+		{ name = "nvim_lsp_signature_help", keyword_length = 1},
   }, {
-    { name = 'buffer' },
+    { name = 'buffer', keyword_length = 4, max_item_count = 10},
   })
 })
 
