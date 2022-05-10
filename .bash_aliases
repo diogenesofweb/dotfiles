@@ -24,3 +24,5 @@ alias vi='nvim'
 alias vis='nvim -S'
 
 alias nd='npm run dev'
+alias no='npm outdated'
+alias nog='npm outdated -g'
