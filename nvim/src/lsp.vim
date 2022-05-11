@@ -226,7 +226,7 @@ cmp.setup({
     -- { name = 'nvim_lsp', keyword_length = 3, max_item_count = 10},
 		{ name = "nvim_lsp_signature_help", keyword_length = 1},
   }, {
-    { name = 'buffer', keyword_length = 4, max_item_count = 10},
+    { name = 'buffer', keyword_length = 3, max_item_count = 10},
   })
 })
 
@@ -256,7 +256,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
       -- Disable signs
       signs = false,
-      virtual_text = false,
+      virtual_text = true,
     }
   )
 

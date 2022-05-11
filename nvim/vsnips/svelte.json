@@ -298,5 +298,12 @@
       "<svelte:options ${1|immutable,accessors,namespace,tag|}={${2:value}}/>"
     ],
     "description": "svelte:options"
+  },
+
+  "kazkadien-button": {
+    "prefix": "kbutton",
+    "body": [
+      "<Btn accent=${1|'','alpha','beta','gamma','danger','base'|} variant=${2|'','text','filled','outlined','tab'|} text='${3:submit}' on:click={${4:() => }} />"
+    ]
   }
 }
