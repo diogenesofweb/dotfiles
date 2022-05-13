@@ -26,7 +26,7 @@ a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
 
 -- e = {"<cmd>Lexplore<cr>", "Open Explorer"},
-e = {"<cmd>Telescope file_browser<cr>", "File Browser"},
+e = {"<cmd>Telescope file_browser theme=dropdown previewer=false<cr>", "File Browser"},
 -- b = {"<cmd>Telescope buffers<cr>", "List Buffers"},
 b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "List Buffers"},
 f = {"<cmd>Telescope find_files<cr>", "Find Files"},
