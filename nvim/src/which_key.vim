@@ -10,7 +10,7 @@ wk.register({
 [';'] = {"<cmd>Telescope commands<cr>", "Commands"},
 -- ['`'] = {"<cmd>sp +term<cr>", "Terminal"},
 
-q = {"<cmd>mksession!<cr> | <cmd>q<cr>", "Save session & Quit"},
+q = {"<cmd>mksession!|q<cr>", "Save session & Quit"},
 x = {"<cmd>xa<cr>", "Save all & Quit"},
 -- c = {"<cmd>bd<cr>", "Close Buffer"},
 c = {"<cmd>bp|bd #<cr>", "Close Buffer"},
