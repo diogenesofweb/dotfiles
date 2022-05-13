@@ -34,6 +34,8 @@ Plug 'windwp/nvim-autopairs'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-ui-select.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'mhartington/formatter.nvim'
 
