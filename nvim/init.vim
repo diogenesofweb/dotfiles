@@ -45,7 +45,8 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 Plug 'folke/which-key.nvim'
 
-Plug 'akinsho/bufferline.nvim'
+" Plug 'akinsho/bufferline.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 " Session 
 " Plug 'tpope/vim-obsession'
