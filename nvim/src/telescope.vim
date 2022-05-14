@@ -22,9 +22,7 @@ require('telescope').setup{
   }, 
 
   extensions = {
-    file_browser = {
-      -- theme = "dropdown",
-    },
+    file_browser = {},
 
     ["ui-select"] = {
       require("telescope.themes").get_cursor {}
