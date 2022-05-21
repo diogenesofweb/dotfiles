@@ -2,7 +2,6 @@ lua << EOF
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = { "node_modules" }, 
-    -- preview = false,
 
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
@@ -21,8 +20,24 @@ require('telescope').setup{
     },
   }, 
 
+  pickers = {
+    buffers = {
+      previewer = false,
+      theme = "dropdown",
+      layout_config = {
+        height = 0.8
+      }
+    }
+  },
+
   extensions = {
-    file_browser = {},
+    file_browser = {
+      previewer = false,
+      theme = "dropdown",
+      layout_config = {
+        height = 0.8
+      }
+    },
 
     ["ui-select"] = {
       require("telescope.themes").get_cursor {}
