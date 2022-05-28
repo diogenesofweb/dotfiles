@@ -23,9 +23,6 @@ nnoremap <C-l> <C-w>l
 " SHIFT-TAB will go back
 " nnoremap <S-TAB> :bprevious<CR>
 
-nnoremap gt :bnext<CR>
-nnoremap gT :bprevious<CR>
-
 " Alternate way to save
 nnoremap <C-s> :w<CR>
 nnoremap <C-A-s> :wa<CR>
