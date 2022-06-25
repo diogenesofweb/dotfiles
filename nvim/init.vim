@@ -57,6 +57,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'sainnhe/gruvbox-material'
 
+"" nvim in browser
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 
 set background=dark
