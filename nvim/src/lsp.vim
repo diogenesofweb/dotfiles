@@ -9,7 +9,7 @@ lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- commented keymaps moved to which-key
-local opts = { noremap=true, silent=true }
+local opts = { noremap=true, silent=true, buffer=bufnr }
 vim.api.nvim_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
