@@ -3,6 +3,10 @@ if exists('g:vscode')
   finish
 endif
 
+if exists('g:started_by_firenvim')
+  au BufEnter localhost*.txt set filetype=json
+endif
+
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
