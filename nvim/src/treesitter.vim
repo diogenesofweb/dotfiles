@@ -46,8 +46,10 @@ require'treesitter-context'.setup{
             'class',
             'function',
             'method',
-            -- 'for', -- These won't appear in the context
-            -- 'while',
+            'for',
+            'while',
+            'label',
+
             -- 'if',
             -- 'switch',
             -- 'case',

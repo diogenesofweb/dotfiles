@@ -111,11 +111,14 @@ nvim_lsp.tsserver.setup {
   filetypes = { "javascript", "typescript" },
   on_attach = on_attach,
   flags = { debounce_text_changes = 150, },
+  init_options = {
+    preferences = {importModuleSpecifierEnding = "js"},
+  },
   commands = {
     OrganizeImports = {
       organize_imports,
       description = "Organize Imports"
-    }
+    },
   }
 }
 

@@ -81,6 +81,8 @@ E = {
 
 l = {
   name = "LSP",
+  o = {"<cmd>OrganizeImports<cr>", "Organize Imports"},
+
   -- a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
   -- e = {"<cmd>Telescope diagnostics<cr>", "Errors", },
   f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},

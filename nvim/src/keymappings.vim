@@ -14,6 +14,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
 " nnoremap <c-u> viwU<Esc>
