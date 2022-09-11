@@ -14,7 +14,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
@@ -71,3 +70,8 @@ nnoremap <F2> <cmd>lua vim.lsp.buf.rename()<CR>
 
 " search for visually selected text
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" paste in visual  without replacing register
+xnoremap <space>p "_dP 
+
+nnoremap <M-c> ciw
