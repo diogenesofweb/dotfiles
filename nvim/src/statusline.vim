@@ -1,8 +1,12 @@
 set laststatus=3
+set cmdheight=0
+set winbar=%f
 
 set statusline=
 set statusline+=\ 
 set statusline+=%{StatuslineMode()}
+set statusline+=\ 
+set statusline+=%f
 set statusline+=\ 
 " set statusline+=%{ObsessionStatus()} 
 " set statusline+=\ 

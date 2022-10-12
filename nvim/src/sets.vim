@@ -38,8 +38,6 @@ set colorcolumn=80
 set number
 " set relativenumber
 
-set cmdheight=0
-
 augroup Markdown
   autocmd!
   autocmd FileType markdown set wrap
