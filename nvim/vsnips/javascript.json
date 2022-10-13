@@ -1,6 +1,6 @@
 {
   "await": {
-    "prefix": "a",
+    "prefix": "aw",
     "body": "await ${0}"
   },
 
@@ -38,12 +38,8 @@
     "body": "const { ${2:prop} } = ${1:value}"
   },
   "const arrow function assignment": {
-    "prefix": "caf",
+    "prefix": "cfn",
     "body": "const ${1:name} = (${2:arguments}) => ${0}\n"
-  },
-  "const arrow function assignment with return": {
-    "prefix": "cf",
-    "body": "const ${1:name} = (${2:arguments}) => {\n\treturn ${0}\n}"
   },
   "const object": {
     "prefix": "cob",
@@ -54,33 +50,9 @@
     "body": "const ${1:name} = [\n\t${0}\n]"
   },
 
-  "module export": {
-    "prefix": "e",
-    "body": "export ${1:member}"
-  },
-  "module export const": {
-    "prefix": "ec",
-    "body": "export const ${1:member} = ${2:value}"
-  },
-  "export named function": {
-    "prefix": "ef",
-    "body": "export function ${1:member} (${2:arguments}) {\n\t${0}\n}"
-  },
-  "module default export": {
-    "prefix": "ed",
-    "body": "export default ${1:member}"
-  },
-  "module default export function": {
-    "prefix": "edf",
-    "body": "export default function ${1:name} (${2:arguments}) {\n\t${0}\n}"
-  },
   "import module": {
     "prefix": "im",
     "body": "import ${2:*} from '${1:module}'"
-  },
-  "import module as": {
-    "prefix": "ia",
-    "body": "import ${2:*} as ${3:name} from '${1:module}'"
   },
   "Import external module.": {
     "prefix": "import statement",
@@ -88,26 +60,13 @@
     "description": "Import external module."
   },
 
-  "this": {
-    "prefix": "t",
-    "body": "this."
-  },
-
   "let and if statement": {
     "prefix": "lif",
     "body": "let ${0} \n if (${2:condition}) {\n\t${1}\n}"
   },
-  "else statement": {
-    "prefix": "el",
-    "body": "else {\n\t${0}\n}"
-  },
-  "else if statement": {
-    "prefix": "ei",
-    "body": "else if (${1:condition}) {\n\t${0}\n}"
-  },
 
   "throw new Error": {
-    "prefix": "tn",
+    "prefix": "tne",
     "body": "throw new ${0:error}"
   },
 
@@ -115,34 +74,27 @@
     "prefix": "tc",
     "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}"
   },
-  "try/finally": {
-    "prefix": "tf",
-    "body": "try {\n\t${0}\n} finally {\n\t\n}"
-  },
   "try/catch/finally": {
     "prefix": "tcf",
     "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n} finally {\n\t\n}"
   },
 
   "named function": {
-    "prefix": "fn",
+    "prefix": "ff",
     "body": "function ${1:name} (${2:arguments}) {\n\t${0}\n}"
   },
   "async function": {
-    "prefix": "asfn",
+    "prefix": "aff",
     "body": "async function ${1:name} (${2:arguments}) {\n\t${0}\n}"
   },
+
   "arrow function": {
-    "prefix": "af",
+    "prefix": "afn",
     "body": "(${1:arguments}) => ${2:statement}"
   },
   "async arrow function": {
-    "prefix": "aa",
+    "prefix": "aafn",
     "body": "async (${1:arguments}) => {\n\t${0}\n}"
-  },
-  "arrow function with destructuring": {
-    "prefix": "fd",
-    "body": "({${1:arguments}}) => ${2:statement}"
   },
 
   "console.log": {
@@ -174,10 +126,6 @@
   "ternary": {
     "prefix": "te",
     "body": "${1:cond} ? ${2:true} : ${3:false}"
-  },
-  "ternary assignment": {
-    "prefix": "ta",
-    "body": "const ${0} = ${1:cond} ? ${2:true} : ${3:false}"
   },
 
   "Object.keys": {
@@ -277,24 +225,13 @@
     "description": "Set Interval Function"
   },
 
-  "Region Start": {
-    "prefix": "#region",
-    "body": ["//#region $0"],
-    "description": "Folding Region Start"
-  },
-  "Region End": {
-    "prefix": "#endregion",
-    "body": ["//#endregion"],
-    "description": "Folding Region End"
-  },
-
   "const variable": {
-    "prefix": "dc",
+    "prefix": "cc",
     "body": "const ${1} = ${2}",
     "description": "const variable"
   },
   "let variable": {
-    "prefix": "dl",
+    "prefix": "ll",
     "body": "let ${1} = ${2}",
     "description": "let variable"
   },
