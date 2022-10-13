@@ -41,7 +41,7 @@ vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.md,*.html,*.css,*.json,*.js,*.ts FormatWrite
-  autocmd BufWritePre *.svelte,*.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+  autocmd BufWritePre *.svelte,*.go lua vim.lsp.buf.format({ timeout = 2000 })
 augroup END
 ]], true)
 

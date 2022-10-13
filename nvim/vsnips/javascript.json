@@ -194,7 +194,7 @@
   },
 
   "return": {
-    "prefix": "r",
+    "prefix": "rr",
     "body": "return ${0}"
   },
 

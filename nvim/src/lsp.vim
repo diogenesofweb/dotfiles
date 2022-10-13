@@ -232,13 +232,30 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = cmp.config.sources({
-    { name = 'vsnip', max_item_count = 5}, -- For vsnip users.
-    { name = 'nvim_lsp', max_item_count = 20},
-    -- { name = 'nvim_lsp', keyword_length = 3, max_item_count = 10},
+    { name = 'nvim_lsp', keyword_length = 3},
 		{ name = "nvim_lsp_signature_help", keyword_length = 1},
+    { name = 'vsnip', max_item_count = 5, keyword_length = 2}, -- For vsnip users.
   }, {
     { name = 'buffer', keyword_length = 3, max_item_count = 10},
-  })
+  }),
+  window = {
+    completion = {
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      col_offset = -3,
+      side_padding = 0,
+    },
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. strings[1] .. " "
+      kind.menu = "    (" .. strings[2] .. ")"
+  
+      return kind
+    end,
+  },
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
@@ -264,13 +281,15 @@ require('nvim-autopairs').setup{}
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- Disable signs
-      signs = false,
-      virtual_text = true,
-    }
-  )
-
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = false,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = false,
+    float = true,
+  }
+)
 
 
 function OrgImports(wait_ms)
