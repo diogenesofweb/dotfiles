@@ -42,9 +42,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local lsp_flags = { debounce_text_changes = 150, }
+
 nvim_lsp.jsonls.setup {
   on_attach = on_attach,
-  flags = { debounce_text_changes = 150, },
+  flags = lsp_flags,
   filetypes = {"json", "jsonc"},
   settings = {
     json = {
@@ -91,17 +93,16 @@ end
 nvim_lsp.tsserver.setup {
   filetypes = { "javascript", "typescript" },
   on_attach = on_attach,
-  flags = { debounce_text_changes = 150, },
+  flags = lsp_flags,
   init_options = {
     preferences = {importModuleSpecifierEnding = "js"},
   },
   commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports"
-    },
+    OrganizeImports = { organize_imports, description = "Organize Imports" },
   }
 }
+
+
 
 nvim_lsp.svelte.setup {
   on_attach = function (client, bufnr) 
@@ -113,14 +114,17 @@ nvim_lsp.svelte.setup {
     return on_attach(client, bufnr)
   end,
 
-  flags = { debounce_text_changes = 150, },
+  flags = lsp_flags,
 
   settings = { 
     svelte = {
       plugin = {
-        html   = { completions = { enable = true, emmet = true } },
-        svelte = { completions = { enable = true, emmet = false } },
-        css    = { completions = { enable = true, emmet = true  } },
+        -- html   = { completions = { enable = true, emmet = true } },
+        svelte = { 
+          -- completions = { enable = true }, 
+          useNewTransformation = true 
+        },
+        -- css    = { completions = { enable = true, emmet = true  } },
       },
     },
   },
@@ -128,11 +132,11 @@ nvim_lsp.svelte.setup {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'html', 'cssls', 'vimls', 'sqlls' }
+local servers = { 'html', 'cssls', 'vimls', 'sqlls', 'emmet_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
-    flags = { debounce_text_changes = 150, }
+    flags = lsp_flags,
   }
 end
 
@@ -140,7 +144,7 @@ end
 util = require "lspconfig/util"
 nvim_lsp.gopls.setup{
   on_attach = on_attach,
-  flags = { debounce_text_changes = 150, },
+  flags = lsp_flags,
   cmd = {'gopls','serve'},
   -- cmd = {'gopls','--remote=auto'},
   filetypes = {"go", "gomod"},
