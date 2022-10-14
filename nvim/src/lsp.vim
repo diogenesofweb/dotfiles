@@ -46,6 +46,7 @@ local lsp_flags = { debounce_text_changes = 150, }
 
 nvim_lsp.jsonls.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = lsp_flags,
   filetypes = {"json", "jsonc"},
   settings = {
@@ -93,6 +94,7 @@ end
 nvim_lsp.tsserver.setup {
   filetypes = { "javascript", "typescript" },
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = lsp_flags,
   init_options = {
     preferences = {importModuleSpecifierEnding = "js"},
@@ -114,28 +116,45 @@ nvim_lsp.svelte.setup {
     return on_attach(client, bufnr)
   end,
 
+  capabilities = capabilities,
   flags = lsp_flags,
 
   settings = { 
     svelte = {
       plugin = {
-        -- html   = { completions = { enable = true, emmet = true } },
+        html   = { completions = { enable = true, emmet = true } },
         svelte = { 
           -- completions = { enable = true }, 
           useNewTransformation = true 
         },
-        -- css    = { completions = { enable = true, emmet = true  } },
+        css    = { completions = { enable = true, emmet = true  } },
       },
     },
   },
 }
 
+nvim_lsp.emmet_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+    filetypes = { 'html', 'css', },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    }
+})
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'html', 'cssls', 'vimls', 'sqlls', 'emmet_ls' }
+local servers = { 'html', 'cssls', 'vimls', 'sqlls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = lsp_flags,
   }
 end
@@ -144,6 +163,7 @@ end
 util = require "lspconfig/util"
 nvim_lsp.gopls.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
   flags = lsp_flags,
   cmd = {'gopls','serve'},
   -- cmd = {'gopls','--remote=auto'},
