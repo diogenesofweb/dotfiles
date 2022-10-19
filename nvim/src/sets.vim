@@ -32,7 +32,7 @@ set spelllang=en_us
 set noswapfile
 set cursorline
 set scrolloff=8
-set colorcolumn=80
+" set colorcolumn=80
 
 " set nonumber
 set number

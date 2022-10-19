@@ -51,29 +51,34 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 Plug 'folke/which-key.nvim'
 
-" Plug 'akinsho/bufferline.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
 " Session 
 " Plug 'tpope/vim-obsession'
 
 " UI
-Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/gruvbox-material'
 " Plug 'navarasu/onedark.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
 "
 "" nvim in browser
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
 
-set background=dark
-let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
-
-" let g:onedark_config = { 'style': 'warmer' }
-" colorscheme onedark
-
 lua << EOF
+require("tokyonight").setup({
+  style = "night",
+  on_colors = function(colors)
+    -- colors.bg = "#1f1f1f"
+    -- colors.bg_dark = "#141414"
+    -- colors.bg = "#1a1a1c"
+    colors.bg = "#1d1d1f"
+    colors.bg_dark = "#131317"
+  end
+})
+
 require'nvim-web-devicons'.setup {
  default = true;
 }
@@ -84,6 +89,14 @@ require('nvim_comment').setup {
   end
 }
 EOF
+
+set background=dark
+" let g:gruvbox_material_background = 'hard'
+" colorscheme gruvbox-material
+
+" let g:onedark_config = { 'style': 'warmer' }
+" colorscheme onedark
+colorscheme tokyonight-night
 
 source $HOME/.config/nvim/src/sets.vim
 
