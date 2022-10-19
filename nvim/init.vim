@@ -34,9 +34,6 @@ Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 "
-" Plug 'L3MON4D3/LuaSnip'
-" Plug 'saadparwaiz1/cmp_luasnip'
-
 
 Plug 'windwp/nvim-autopairs'
 
@@ -61,11 +58,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 " Plug 'tpope/vim-obsession'
 
 " UI
-" Plug 'tomasiser/vim-code-dark'
-" Plug 'projekt0n/github-nvim-theme'
-" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'sainnhe/gruvbox-material'
-
+" Plug 'navarasu/onedark.nvim'
+"
 "" nvim in browser
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -74,6 +69,9 @@ call plug#end()
 set background=dark
 let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
+
+" let g:onedark_config = { 'style': 'warmer' }
+" colorscheme onedark
 
 lua << EOF
 require'nvim-web-devicons'.setup {

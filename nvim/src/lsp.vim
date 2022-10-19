@@ -232,13 +232,16 @@ cmp.setup({
       end
     end, { "i", "s" }),
   },
+
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', keyword_length = 3},
 		{ name = "nvim_lsp_signature_help", keyword_length = 1},
-    { name = 'vsnip', max_item_count = 5, keyword_length = 1}, -- For vsnip users.
+  }, {
+    { name = 'nvim_lsp', keyword_length = 3},
+    { name = 'vsnip', max_item_count = 8, keyword_length = 1},
   }, {
     { name = 'buffer', keyword_length = 3, max_item_count = 10},
   }),
+
   window = {
     completion = {
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
@@ -246,6 +249,7 @@ cmp.setup({
       side_padding = 0,
     },
   },
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
