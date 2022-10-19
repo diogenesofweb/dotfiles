@@ -3,7 +3,7 @@ set completeopt=menu,menuone,noselect
 let g:vsnip_filetypes = {}
 let g:vsnip_filetypes.svelte = ['javascript']
 let g:vsnip_filetypes.typescript = ['javascript']
-let g:vsnip_snippet_dir = expand("~/.config/nvim/vsnips")
+let g:vsnip_snippet_dir = expand("~/.config/nvim/vsnips/snippets")
 
 lua << EOF
 
@@ -39,7 +39,7 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lsp_flags = { debounce_text_changes = 150, }
@@ -122,12 +122,15 @@ nvim_lsp.svelte.setup {
   settings = { 
     svelte = {
       plugin = {
-        html   = { completions = { enable = true, emmet = true } },
+        -- html   = { completions = { enable = false, emmet = true } },
+        -- html   = { completions = { enable = true, emmet = false } },
         svelte = { 
           -- completions = { enable = true }, 
+          -- completions = { enable = false }, 
           useNewTransformation = true 
         },
-        css    = { completions = { enable = true, emmet = true  } },
+        -- css    = { completions = { enable = false, emmet = true  } },
+        -- css    = { completions = { enable = true, emmet = false  } },
       },
     },
   },
@@ -137,15 +140,16 @@ nvim_lsp.emmet_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     -- filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    filetypes = { 'html', 'css', },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
+    -- filetypes = { 'html', 'css', },
+    filetypes = { 'html', 'css' },
+    -- init_options = {
+    --   html = {
+    --     options = {
+    --       -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+    --       ["bem.enabled"] = true,
+    --     },
+    --   },
+    -- }
 })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -213,10 +217,6 @@ cmp.setup({
     -- ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
-      -- if cmp.visible() then
-      --   cmp.select_next_item()
-      -- elseif vim.fn["vsnip#available"](1) == 1 then
-        -- feedkey("<Plug>(vsnip-expand-or-jump)", "")
       if vim.fn["vsnip#jumpable"](1) == 1 then
         feedkey("<Plug>(vsnip-jump-next)", "")
       elseif has_words_before() then
@@ -227,9 +227,6 @@ cmp.setup({
     end, { "i", "s" }),
 
     ["<S-Tab>"] = cmp.mapping(function()
-      -- if cmp.visible() then
-      --   cmp.select_prev_item()
-      -- elseif vim.fn["vsnip#jumpable"](-1) == 1 then
       if vim.fn["vsnip#jumpable"](-1) == 1 then
         feedkey("<Plug>(vsnip-jump-prev)", "")
       end
@@ -238,7 +235,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp', keyword_length = 3},
 		{ name = "nvim_lsp_signature_help", keyword_length = 1},
-    { name = 'vsnip', max_item_count = 5, keyword_length = 2}, -- For vsnip users.
+    { name = 'vsnip', max_item_count = 5, keyword_length = 1}, -- For vsnip users.
   }, {
     { name = 'buffer', keyword_length = 3, max_item_count = 10},
   }),
@@ -277,6 +274,7 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+
 
 
 require('nvim-autopairs').setup{}

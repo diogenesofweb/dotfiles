@@ -33,7 +33,10 @@ Plug 'onsails/lspkind.nvim'
 " Snippets
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-" Plug 'rafamadriz/friendly-snippets'
+"
+" Plug 'L3MON4D3/LuaSnip'
+" Plug 'saadparwaiz1/cmp_luasnip'
+
 
 Plug 'windwp/nvim-autopairs'
 

@@ -1,0 +1,157 @@
+{
+  "svelte-component-format": {
+    "prefix": "s-component-format",
+    "body": [
+      "<script>",
+      "\t${1:// your script goes here}",
+      "</script>",
+      "",
+      "${2:<!-- markup (zero or more items) goes here -->}",
+      "",
+      "<style>",
+      "\t${3:/* your styles go here */}",
+      "</style>",
+      ""
+    ],
+    "description": "add a script to your svelte file"
+  },
+
+  "svelte-if-block": {
+    "prefix": "s-if-block",
+    "body": ["{#if ${1:condition}}", "\t${2: <!-- content here -->}", "{/if}"],
+    "description": "if block"
+  },
+  "svelte-if-else-block": {
+    "prefix": "s-if-else-block",
+    "body": [
+      "{#if ${1:condition}}",
+      "\t${2: <!-- content here -->}",
+      "{:else}",
+      "\t${3: <!-- else content here -->}",
+      "{/if}"
+    ],
+    "description": "if else block"
+  },
+  "svelte-else-block": {
+    "prefix": "s-else-block",
+    "body": ["{:else}", "\t${1: <!-- else content here -->}"],
+    "description": "else block"
+  },
+  "svelte-else-if-block": {
+    "prefix": "s-else-if-block",
+    "body": [
+      "{:else if ${1: otherCondition}}",
+      "\t${2: <!-- else if content here -->}"
+    ],
+    "description": "else if block"
+  },
+
+  "svelte-each-block": {
+    "prefix": "s-each-block",
+    "body": [
+      "{#each ${1:items} as ${2:item}}",
+      "\t${3: <!-- content here -->}",
+      "{/each}"
+    ],
+    "description": "each block"
+  },
+  "svelte-each-else-block": {
+    "prefix": "s-each-else-block",
+    "body": [
+      "{#each ${1:items} as ${2:item}}",
+      "\t${3: <!-- content here -->}",
+      "{:else}",
+      "\t${4: <!-- empty list -->}",
+      "{/each}"
+    ],
+    "description": "each else block"
+  },
+  "svelte-each-index-key-block": {
+    "prefix": "s-each-index-key-block",
+    "body": [
+      "{#each ${1:items} as ${2:item},${3:idx} (${4:key})}",
+      "\t${4: <!-- content here -->}",
+      "{/each}"
+    ],
+    "description": "each index key block"
+  },
+
+  "svelte-on-event": {
+    "prefix": "s-on-event",
+    "body": ["on:${1:eventname}={${2:handler}}"],
+    "description": "on event"
+  },
+  "svelte-on-event-modifiers": {
+    "prefix": "s-on-event-modifiers",
+    "body": [
+      "on:${1:eventname}|${2|preventDefault,stopPropagation,passive,capture,once|}={${3:handler}}"
+    ],
+    "description": "on event w/ modifiers"
+  },
+  "svelte-on-event-inline": {
+    "prefix": "s-on-event-inline",
+    "body": ["on:${1:click}=\"{() => ${2:count += 1}}\""],
+    "description": "on event inline"
+  },
+  "svelte-bind-property": {
+    "prefix": "s-bind-property",
+    "body": ["bind:${1:property}={${2:variable}}"],
+    "description": "bind property"
+  },
+  "svelte-bind-group": {
+    "prefix": "s-bind-group",
+    "body": ["bind:group={${1:variable}}"],
+    "description": "bind group"
+  },
+  "svelte-class": {
+    "prefix": "s-class",
+    "body": ["class:${1:name}={${2:condition}}"],
+    "description": "class"
+  },
+
+  "svelte-slot": {
+    "prefix": "s-slot",
+    "body": ["<slot>${1:<!-- optional fallback -->}</slot>"],
+    "description": "slot"
+  },
+  "svelte-slot-name": {
+    "prefix": "s-slot-name",
+    "body": ["<slot name=\"${1:x}\">${2:<!-- optional fallback -->}</slot>"],
+    "description": "slot w/ name"
+  },
+
+  "svelte-component": {
+    "prefix": "s-component",
+    "body": ["<svelte:component this={${1:component}} />"],
+    "description": "svelte:component"
+  },
+  "svelte-window": {
+    "prefix": "s-window",
+    "body": ["<svelte:window />"],
+    "description": "svelte:window"
+  },
+  "svelte-body": {
+    "prefix": "s-body",
+    "body": ["<svelte:body />"],
+    "description": "svelte:body"
+  },
+  "svelte-head": {
+    "prefix": "s-head",
+    "body": ["<svelte:head>", "\t${1:<!-- head content -->}", "</svelte:head>"],
+    "description": "svelte:head"
+  },
+  "svelte-options": {
+    "prefix": "s-options",
+    "body": [
+      "<svelte:options ${1|immutable,accessors,namespace,tag|}={${2:value}}/>"
+    ],
+    "description": "svelte:options"
+  },
+
+  "kazkadien-button": {
+    "prefix": "kbutton",
+    "body": [
+      "<Btn accent=${1|'','alpha','beta','gamma','danger','base'|} variant=${2|'','text','filled','outlined','tab'|} text='${3:submit}' on:click={${4:() => }} />"
+    ]
+  }
+}
