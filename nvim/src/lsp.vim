@@ -242,6 +242,7 @@ cmp.setup({
 
   sources = cmp.config.sources({
 		{ name = "nvim_lsp_signature_help", keyword_length = 1},
+    { name = 'path' },
   }, {
     { name = 'nvim_lsp', keyword_length = 3},
     { name = 'vsnip', max_item_count = 8, keyword_length = 1},

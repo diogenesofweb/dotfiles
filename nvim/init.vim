@@ -71,11 +71,9 @@ lua << EOF
 require("tokyonight").setup({
   style = "night",
   on_colors = function(colors)
-    -- colors.bg = "#1f1f1f"
-    -- colors.bg_dark = "#141414"
-    -- colors.bg = "#1a1a1c"
     colors.bg = "#1d1d1f"
     colors.bg_dark = "#131317"
+    colors.bg_highlight = "#232738"
   end
 })
 
