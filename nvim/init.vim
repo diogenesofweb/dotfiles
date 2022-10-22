@@ -38,7 +38,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'windwp/nvim-autopairs'
 
 " Telescope
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
@@ -59,8 +59,8 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 " UI
 " Plug 'sainnhe/gruvbox-material'
 " Plug 'navarasu/onedark.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'Mofiqul/vscode.nvim'
 "
 "" nvim in browser
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -68,14 +68,22 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
 lua << EOF
-require("tokyonight").setup({
-  style = "night",
-  on_colors = function(colors)
-    colors.bg = "#1d1d1f"
-    colors.bg_dark = "#131317"
-    colors.bg_highlight = "#232738"
-  end
-})
+-- require("tokyonight").setup({
+--   style = "night",
+--
+--   styles = {
+--     comments = { italic = true },
+--     keywords = { italic = false },
+--   },
+--
+--   on_colors = function(colors)
+--     -- colors.bg = "#1d1d21"
+--     -- colors.bg_dark = "#131317"
+--     colors.bg = "#1D2021"
+--     colors.bg_highlight = "#191b1c"
+--     colors.comment = "#6772a3"
+--   end,
+-- })
 
 require'nvim-web-devicons'.setup {
  default = true;
@@ -92,9 +100,8 @@ set background=dark
 " let g:gruvbox_material_background = 'hard'
 " colorscheme gruvbox-material
 
-" let g:onedark_config = { 'style': 'warmer' }
-" colorscheme onedark
-colorscheme tokyonight-night
+" colorscheme tokyonight-night
+colorscheme vscode
 
 source $HOME/.config/nvim/src/sets.vim
 
