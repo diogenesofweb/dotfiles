@@ -70,15 +70,11 @@ call plug#end()
 lua << EOF
 -- require("tokyonight").setup({
 --   style = "night",
---
 --   styles = {
 --     comments = { italic = true },
 --     keywords = { italic = false },
 --   },
---
 --   on_colors = function(colors)
---     -- colors.bg = "#1d1d21"
---     -- colors.bg_dark = "#131317"
 --     colors.bg = "#1D2021"
 --     colors.bg_highlight = "#191b1c"
 --     colors.comment = "#6772a3"
@@ -94,6 +90,13 @@ require('nvim_comment').setup {
     require('ts_context_commentstring.internal').update_commentstring()
   end
 }
+
+require('vscode').setup({
+    italic_comments = true,
+    color_overrides = {
+        vscCursorDarkDark = '#171717',
+    },
+})
 EOF
 
 set background=dark
