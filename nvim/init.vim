@@ -58,7 +58,6 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 
 " UI
 " Plug 'sainnhe/gruvbox-material'
-" Plug 'navarasu/onedark.nvim'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'Mofiqul/vscode.nvim'
 "
