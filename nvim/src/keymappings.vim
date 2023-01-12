@@ -3,10 +3,10 @@ inoremap <expr> <c-k> ("\<C-p>")
 nnoremap <silent> Q <nop>
 
 " Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+" nnoremap <M-j>    :resize -2<CR>
+" nnoremap <M-k>    :resize +2<CR>
+" nnoremap <M-h>    :vertical resize -2<CR>
+" nnoremap <M-l>    :vertical resize +2<CR>
 
 " Better window navigation
 nnoremap <C-h> <C-w>h
@@ -16,6 +16,14 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+
+" nnoremap <M-j> <C-d>zz
+" nnoremap <M-k> <C-u>zz
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap Y mzJ`z
 
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
