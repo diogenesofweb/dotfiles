@@ -38,7 +38,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'windwp/nvim-autopairs'
 
 " Telescope
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
