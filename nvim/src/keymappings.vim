@@ -23,7 +23,7 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-nnoremap Y mzJ`z
+nnoremap J mzJ`z
 
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
