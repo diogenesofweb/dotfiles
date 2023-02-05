@@ -5,8 +5,7 @@ local wk = require("which-key")
 
 wk.register({
 ["<leader>"] = {
-
-['/'] = {"<cmd>CommentToggle<cr>", "Comment Toggle"},
+-- ['/'] = {"<cmd>CommentToggle<cr>", "Comment Toggle"},
 [';'] = {"<cmd>Telescope commands<cr>", "Commands"},
 -- ['`'] = {"<cmd>sp +term<cr>", "Terminal"},
 
@@ -20,13 +19,13 @@ y = {"<cmd>Format<cr>", "Format-prettier"},
 h = {"<cmd>noh<cr>", "No highlighting"},
 
 ['2'] = {"<cmd>Telescope lsp_document_symbols<cr>", "Doccument Symbols"},
-['7'] = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Problem"},
-['8'] = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Problem"},
+i = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Problem"},
+o = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Problem"},
 
 a = {"<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Symbol"},
+d = {"<cmd>Telescope diagnostics<cr>", "Diagnostics", },
 
--- e = {"<cmd>Lexplore<cr>", "Open Explorer"},
 e = {"<cmd>Telescope file_browser path=%:p:h<cr>", "File Browser"},
 -- e = {"<cmd>Telescope file_browser previewer=false path=%:p:h theme=dropdown layout_config={height=0.8}<cr>", "File Browser"},
 b = {"<cmd>Telescope buffers<cr>", "List Buffers"},
@@ -35,17 +34,16 @@ s = {"<cmd>Telescope live_grep<cr>", "Text Search"},
 g = {"<cmd>Telescope grep_string<cr>", "Find String"},
 k = {"<cmd>Telescope quickfix<cr>", "Quickfix (qflist)"},
 -- o = {"<cmd>Telescope oldfiles<cr>", "List Recent Files"},
-d = {"<cmd>Telescope diagnostics<cr>", "Diagnostics", },
 t = {"<cmd>Telescope<cr>", "Telescope builtin"},
 
 v = {"<cmd>vsplit <cr>", "V Split"},
 -- h = {"<cmd>split <cr>", "H Split"},
 
-E = {
-  name = 'File Explorer',
-  w = {"<cmd>Lexplore<cr>", "Working Directory"},
-  c = {"<cmd>Lexplore %:p:h<cr>", "Current File Directory"},
-  },
+-- E = {
+--   name = 'File Explorer',
+--   w = {"<cmd>Lexplore<cr>", "Working Directory"},
+--   c = {"<cmd>Lexplore %:p:h<cr>", "Current File Directory"},
+--   },
 
 -- B = {
 --   name = 'Buffers',
@@ -82,18 +80,12 @@ E = {
 l = {
   name = "LSP",
   o = {"<cmd>OrganizeImports<cr>", "Organize Imports"},
-
-  -- a = {"<cmd>Telescope lsp_code_actions<cr>", "Code Action"},
-  -- e = {"<cmd>Telescope diagnostics<cr>", "Errors", },
   f = {"<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format"},
   i = {"<cmd>LspInfo<cr>", "Info"},
   I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
-  -- j = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic"},
-  -- k = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
   l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
   q = {"<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix"},
-  r = {"<cmd>Telescope lsp_references<cr>", "References"},
-  -- R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+  -- r = {"<cmd>Telescope lsp_references<cr>", "References"},
   -- s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
   S = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
 
