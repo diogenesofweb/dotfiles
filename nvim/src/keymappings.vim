@@ -60,6 +60,9 @@ let mapleader = " "
 nnoremap <space>/ :CommentToggle<CR>
 vnoremap <space>/ :CommentToggle<CR>
 " vnoremap <space>/ '<,'>:CommentToggle<CR>
+"
+" paste in visual  without replacing register
+xnoremap <space>p "_dP 
 
 " Undo
 " nnoremap <C-z> u
@@ -79,7 +82,5 @@ nnoremap <F2> <cmd>lua vim.lsp.buf.rename()<CR>
 " search for visually selected text
 " vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" paste in visual  without replacing register
-xnoremap <space>p "_dP 
 
 nnoremap <M-c> ciw

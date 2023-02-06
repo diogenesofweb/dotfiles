@@ -147,8 +147,8 @@ nvim_lsp.emmet_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     -- filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-    -- filetypes = { 'html', 'css', },
-    filetypes = { 'html', 'css' },
+    filetypes = { 'html', 'css', 'scss', 'postcss'},
+    -- filetypes = { 'html', 'css' },
     -- init_options = {
     --   html = {
     --     options = {
@@ -325,3 +325,6 @@ EOF
 
 autocmd BufWritePre *.go lua OrgImports(1000)
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+au BufRead,BufNewFile *.postcss                set filetype=scss
+

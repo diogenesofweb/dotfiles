@@ -17,6 +17,7 @@ local formatterConfig = {}
 
 local commonFT = {
   "css",
+  "scss",
   "html",
   "javascript",
   "typescript",
@@ -40,7 +41,7 @@ formatter.setup(
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.md,*.html,*.css,*.json,*.js,*.ts FormatWrite
+  autocmd BufWritePost *.md,*.html,*.css,*.scss,*.postcss,*.json,*.js,*.ts FormatWrite
   autocmd BufWritePre *.svelte,*.go lua vim.lsp.buf.format({ timeout = 2000 })
 augroup END
 ]], true)
