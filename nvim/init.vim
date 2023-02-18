@@ -57,9 +57,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v3.*' }
 " Plug 'tpope/vim-obsession'
 
 " UI
-" Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/gruvbox-material'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'Mofiqul/vscode.nvim'
+" Plug 'Mofiqul/vscode.nvim'
 "
 "" nvim in browser
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -90,20 +90,21 @@ require('nvim_comment').setup {
   end
 }
 
-require('vscode').setup({
-    italic_comments = true,
-    color_overrides = {
-        vscCursorDarkDark = '#171717',
-    },
-})
+-- require('vscode').setup({
+--     italic_comments = true,
+--     color_overrides = {
+--         vscCursorDarkDark = '#171717',
+--     },
+-- })
 EOF
 
 set background=dark
-" let g:gruvbox_material_background = 'hard'
-" colorscheme gruvbox-material
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
 
 " colorscheme tokyonight-night
-colorscheme vscode
+" colorscheme vscode
 
 source $HOME/.config/nvim/src/sets.vim
 

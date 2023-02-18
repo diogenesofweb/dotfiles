@@ -35,8 +35,8 @@ set scrolloff=8
 " set colorcolumn=80
 
 " set nonumber
-set number
-" set relativenumber
+" set number
+set relativenumber
 
 augroup Markdown
   autocmd!

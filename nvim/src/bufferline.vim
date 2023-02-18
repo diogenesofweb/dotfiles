@@ -3,6 +3,8 @@ set termguicolors
 nnoremap <silent><A-b> :BufferLineCycleNext<CR>
 " nnoremap <silent>[b :BufferLineCycleNext<CR>
 " nnoremap <silent>b] :BufferLineCyclePrev<CR>
+nnoremap <silent><A-o> :BufferLineCycleNext<CR>
+nnoremap <silent><A-i> :BufferLineCyclePrev<CR>
 
 nnoremap <silent><A-1> <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><A-2> <Cmd>BufferLineGoToBuffer 2<CR>

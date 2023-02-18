@@ -1,6 +1,6 @@
 set laststatus=3
-set cmdheight=0
-set winbar=%f
+" set cmdheight=0
+" set winbar=%f
 
 set statusline=
 set statusline+=\ 

@@ -71,12 +71,12 @@ v = {"<cmd>vsplit <cr>", "V Split"},
 --   q = {"<cmd>Telescope quickfix<cr>", "Quickfix list (qflist)"},
 --   },
 
--- U = {
---   name = "UI",
---   c = {'<cmd>execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>', "Toggle Colorcolumn"},
---   n = {"<cmd>set nu!<cr>", "Toggle Line Numbers"},
---   r = {"<cmd>set rnu!<cr>", "Toggle Relative Line Numbers"},
---   },
+U = {
+  name = "UI",
+  c = {'<cmd>execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>', "Toggle Colorcolumn"},
+  n = {"<cmd>set nu!<cr>", "Toggle Line Numbers"},
+  r = {"<cmd>set rnu!<cr>", "Toggle Relative Line Numbers"},
+},
 
 l = {
   name = "LSP",
