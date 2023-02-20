@@ -35,6 +35,16 @@ require'nvim-treesitter.configs'.setup {
     "go",
     "lua"
   },
+
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = false, -- set to `false` to disable one of the mappings
+      node_incremental = "<Tab>",
+      scope_incremental = false,
+      node_decremental = "<S-Tab>",
+    },
+  },
 }
 
 require'treesitter-context'.setup{
@@ -56,6 +66,64 @@ require'treesitter-context'.setup{
         },
     },
 }
+
+require'nvim-treesitter.configs'.setup {
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        ["il"] = { query = "@block.inner",  desc = "Select inner block" },
+        ["al"] = { query = "@block.outer",  desc = "Select outer block" },
+      },
+
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+
+      include_surrounding_whitespace = false,
+    },
+
+    move = {
+      enable = true,
+      set_jumps = false, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = { query = "@class.outer", desc = "Next class start" },
+        --
+        -- You can use regex matching and/or pass a list in a "query" key to group multiple queires.
+        ["]o"] = "@loop.*",
+        ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+        ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+      },
+      -- goto_next_end = {
+      --   ["]M"] = "@function.outer",
+      --   ["]["] = "@class.outer",
+      -- },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      -- goto_previous_end = {
+      --   ["[M"] = "@function.outer",
+      --   ["[]"] = "@class.outer",
+      -- },
+    },
+  },
+}
+
+local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+
+-- Repeat movement with ; and ,
+-- ensure ; goes forward and , goes backward regardless of the last direction
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 
 EOF
 

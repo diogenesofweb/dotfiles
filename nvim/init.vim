@@ -12,6 +12,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 Plug 'windwp/nvim-ts-autotag'
 Plug 'kyazdani42/nvim-web-devicons'
 
