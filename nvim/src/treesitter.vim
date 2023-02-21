@@ -45,29 +45,7 @@ require'nvim-treesitter.configs'.setup {
       node_decremental = "<S-Tab>",
     },
   },
-}
 
-require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-        default = {
-            'class',
-            'function',
-            'method',
-            'for',
-            'while',
-            'label',
-
-            -- 'if',
-            -- 'switch',
-            -- 'case',
-        },
-    },
-}
-
-require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
       enable = true,
@@ -118,12 +96,41 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require'treesitter-context'.setup{
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+    trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+        default = {
+            'class',
+            'function',
+            'method',
+            'for',
+            'while',
+            'label',
+
+            -- 'if',
+            -- 'switch',
+            -- 'case',
+        },
+    },
+}
+
 local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
 
--- Repeat movement with ; and ,
--- ensure ; goes forward and , goes backward regardless of the last direction
-vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+-- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+-- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+vim.keymap.set({ "n", "x", "o" }, ";", function()
+  ts_repeat_move.repeat_last_move_next()
+  vim.api.nvim_input('zz')
+  -- vim.api.nvim_feedkeys('zz', 'n', false)
+end)
+vim.keymap.set({ "n", "x", "o" }, ",", function()
+  ts_repeat_move.repeat_last_move_previous()
+  vim.api.nvim_input('zz')
+  -- vim.api.nvim_feedkeys('zz', 'n', false)
+end)
 
 EOF
 
