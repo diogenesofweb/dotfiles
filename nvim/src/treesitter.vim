@@ -1,5 +1,7 @@
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  -- playground = { enable = true, },
+
   context_commentstring = {
     enable = true
   },
@@ -31,6 +33,7 @@ require'nvim-treesitter.configs'.setup {
     "svelte",
     "html",
     "css",
+    "scss",
     "vim",
     "go",
     "lua"
@@ -41,7 +44,7 @@ require'nvim-treesitter.configs'.setup {
     keymaps = {
       init_selection = false, -- set to `false` to disable one of the mappings
       node_incremental = "<Tab>",
-      scope_incremental = false,
+      -- scope_incremental = false,
       node_decremental = "<S-Tab>",
     },
   },
@@ -54,14 +57,18 @@ require'nvim-treesitter.configs'.setup {
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-        ["il"] = { query = "@block.inner",  desc = "Select inner block" },
-        ["al"] = { query = "@block.outer",  desc = "Select outer block" },
+        -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        ["as"] = { query = "@scope",  desc = "Select language scope" },
+        ["ac"] = { query = "@comment.outer",  desc = "Select outer comment" },
+
+        ["ik"] = { query = "@block.inner",  desc = "Select inner block" },
+        ["ak"] = { query = "@block.outer",  desc = "Select outer block" },
       },
 
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
         ['@function.outer'] = 'V', -- linewise
+        -- ['@comment.outer'] = 'V', -- linewise
         ['@class.outer'] = '<c-v>', -- blockwise
       },
 
@@ -74,7 +81,6 @@ require'nvim-treesitter.configs'.setup {
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = { query = "@class.outer", desc = "Next class start" },
-        --
         -- You can use regex matching and/or pass a list in a "query" key to group multiple queires.
         ["]o"] = "@loop.*",
         ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
