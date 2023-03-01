@@ -1,6 +1,6 @@
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  -- playground = { enable = true, },
+  playground = { enable = true, },
 
   context_commentstring = {
     enable = true
@@ -57,8 +57,9 @@ require'nvim-treesitter.configs'.setup {
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-        ["as"] = { query = "@scope",  desc = "Select language scope" },
+
+        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+
         ["ac"] = { query = "@comment.outer",  desc = "Select outer comment" },
 
         ["ik"] = { query = "@block.inner",  desc = "Select inner block" },
@@ -79,6 +80,7 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       set_jumps = false, -- whether to set jumps in the jumplist
       goto_next_start = {
+        ["]a"] = "@assignment.outer",
         ["]m"] = "@function.outer",
         ["]]"] = { query = "@class.outer", desc = "Next class start" },
         -- You can use regex matching and/or pass a list in a "query" key to group multiple queires.
