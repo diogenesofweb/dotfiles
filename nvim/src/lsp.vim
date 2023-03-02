@@ -12,10 +12,10 @@ local builtin = require('telescope.builtin')
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', 'Y', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+-- local opts = { noremap=true, silent=true }
+vim.keymap.set('n', 'Y', vim.diagnostic.open_float, { noremap=true, silent=true, desc='Open float' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap=true, silent=true, desc='Prev diagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap=true, silent=true, desc='Next diagnostic' })
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
@@ -25,20 +25,13 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap=true, silent=true, buffer=bufnr, desc='Declaration' })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap=true, silent=true, buffer=bufnr, desc='Definition' })
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap=true, silent=true, buffer=bufnr, desc='Implementation' })
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  -- vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-  -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
-  -- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { noremap=true, silent=true, buffer=bufnr, desc='Type Definition' })
+  vim.keymap.set('n', 'gr', builtin.lsp_references, { noremap=true, silent=true, buffer=bufnr, desc='References' })
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -72,11 +65,7 @@ nvim_lsp.jsonls.setup {
           url = "https://json.schemastore.org/tsconfig.json"
         },
         {
-          fileMatch = {
-            ".prettierrc",
-            ".prettierrc.json",
-            "prettier.config.json"
-          },
+          fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
           url = "https://json.schemastore.org/prettierrc.json"
         },
         {
@@ -127,27 +116,10 @@ require("typescript").setup({
 nvim_lsp.svelte.setup {
   on_attach = function (client, bufnr) 
     client.server_capabilities.completionProvider.triggerCharacters = {
-      ".",
-      '"',
-      "'",
-      "`",
-      "/",
-      "@",
-      "<",
-      --  Emmet
+      ".", "\"", "'", "`", "/", "@", "<",
       -- ">",
-      "*",
-      "#",
-      "$",
-      "+",
-      "^",
-      "(",
-      "[",
-      "@",
-      "-",
-      --  Svelte
-      ":",
-      "|",
+      "*", "#", "$", "+", "^", "(", "[", "@", "-",
+      ":", "|",
     }
 
     return on_attach(client, bufnr)
@@ -156,37 +128,19 @@ nvim_lsp.svelte.setup {
   capabilities = capabilities,
   flags = lsp_flags,
 
-  settings = { 
-    svelte = {
-      plugin = {
-        -- html   = { completions = { enable = false, emmet = true } },
-        -- html   = { completions = { enable = true, emmet = false } },
-        svelte = { 
-          -- completions = { enable = true }, 
-          -- completions = { enable = false }, 
-          useNewTransformation = true 
-        },
-        -- css    = { completions = { enable = false, emmet = true  } },
-        -- css    = { completions = { enable = true, emmet = false  } },
-      },
-    },
-  },
+  -- settings = { 
+  --   svelte = {
+  --     plugin = {
+  --       svelte = { useNewTransformation = true },
+  --     },
+  --   },
+  -- },
 }
 
 nvim_lsp.emmet_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    -- filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
     filetypes = { 'html', 'css', 'scss', 'postcss'},
-    -- filetypes = { 'html', 'css' },
-    -- init_options = {
-    --   html = {
-    --     options = {
-    --       -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-    --       ["bem.enabled"] = true,
-    --     },
-    --   },
-    -- }
 })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
