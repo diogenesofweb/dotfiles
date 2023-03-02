@@ -23,6 +23,7 @@ Plug 'nvim-lua/plenary.nvim'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/typescript.nvim'
 
 " CMP complition
 Plug 'hrsh7th/cmp-nvim-lsp'

@@ -21,7 +21,7 @@ h = {"<cmd>noh<cr>", "No highlighting"},
 ['2'] = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
 i = {"<cmd>lua vim.diagnostic.goto_next()<cr>zz", "Next Problem"},
 o = {"<cmd>lua vim.diagnostic.goto_prev()<cr>zz", "Prev Problem"},
-u = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Open float"},
+-- u = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Open float (diagnostic)"},
 
 a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
 r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Symbol"},
@@ -80,6 +80,7 @@ U = {
 
 l = {
   name = "LSP",
+  e = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open float (diagnostic)"},
   o = {"<cmd>OrganizeImports<cr>", "Organize Imports"},
   f = {"<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format"},
   i = {"<cmd>LspInfo<cr>", "Info"},
@@ -96,7 +97,6 @@ l = {
     r = {"<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace folder"},
     l = {"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List workspace folders"},
     d = {"<cmd>lua vim.lsp.buf.type_definition()<CR>", "Type definition"},
-    e = {"<cmd>lua vim.diagnostic.open_float()<CR>", "Open float"},
     q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Set loclist"},
     },
   },

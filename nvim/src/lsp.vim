@@ -13,7 +13,7 @@ local builtin = require('telescope.builtin')
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', 'Y', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
   -- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
@@ -88,40 +88,66 @@ nvim_lsp.jsonls.setup {
   }
 }
 
-local function organize_imports(bufnr)
-  -- gets the current bufnr if no bufnr is passed
-  if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
-  -- params for the request
-  local params = {
-      command = "_typescript.organizeImports",
-      arguments = {vim.api.nvim_buf_get_name(bufnr)},
-      title = ""
-  }
-  -- perform a syncronous request
-  -- 500ms timeout depending on the size of file a bigger timeout may be needed
-  vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", params, 500)
-end
+-- local function ts_organize_imports(bufnr)
+--   if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
+--   local params = {
+--       command = "_typescript.organizeImports",
+--       arguments = {vim.api.nvim_buf_get_name(bufnr)},
+--       title = ""
+--   }
+--   vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", params, 500)
+-- end
 
-nvim_lsp.tsserver.setup {
-  filetypes = { "javascript", "typescript" },
-  on_attach = on_attach,
-  capabilities = capabilities,
-  flags = lsp_flags,
-  init_options = {
-    preferences = {importModuleSpecifierEnding = "js"},
-  },
-  commands = {
-    OrganizeImports = { organize_imports, description = "Organize Imports" },
-  }
-}
-
+-- nvim_lsp.tsserver.setup {
+--   filetypes = { "javascript", "typescript" },
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   flags = lsp_flags,
+--   -- init_options = {
+--   --   preferences = {importModuleSpecifierEnding = "js"},
+--   -- },
+--   commands = {
+--     OrganizeImports = { ts_organize_imports, description = "Organize Imports" },
+--   }
+-- }
+require("typescript").setup({
+    disable_commands = false,
+    debug = false,
+    go_to_source_definition = { fallback = true, },
+    server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      -- init_options = {
+      --   preferences = {importModuleSpecifierEnding = "js"},
+      -- },
+    },
+})
 
 
 nvim_lsp.svelte.setup {
   on_attach = function (client, bufnr) 
     client.server_capabilities.completionProvider.triggerCharacters = {
-      ".", "\"", "'", "`", "/", "@", "*",
-      "#", "$", "+", "^", "(", "[", "-", ":",
+      ".",
+      '"',
+      "'",
+      "`",
+      "/",
+      "@",
+      "<",
+      --  Emmet
+      -- ">",
+      "*",
+      "#",
+      "$",
+      "+",
+      "^",
+      "(",
+      "[",
+      "@",
+      "-",
+      --  Svelte
+      ":",
+      "|",
     }
 
     return on_attach(client, bufnr)
@@ -300,7 +326,7 @@ require('nvim-autopairs').setup{}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
+    virtual_text = false,
     signs = false,
     update_in_insert = false,
     underline = true,
@@ -310,7 +336,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 
-function OrgImports(wait_ms)
+function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = {only = {"source.organizeImports"}}
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
@@ -327,7 +353,7 @@ end
 
 EOF
 
-autocmd BufWritePre *.go lua OrgImports(1000)
+autocmd BufWritePre *.go lua go_org_imports(1000)
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 au BufRead,BufNewFile *.postcss                set filetype=scss
