@@ -24,7 +24,7 @@ vim.keymap.set("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- vim.keymap.set({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
 -- save file
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><ESC>", { desc = "Save file" })
 
 -- better indenting
 vim.keymap.set("v", "<", "<gv")
@@ -41,3 +41,5 @@ vim.keymap.set({ "n", "v" }, "<BS>", [["_dd]])
 -- vim.keymap.set("x", "<leader>p", [["_dP]]) -- <S-p>
 -- nnoremap <space>/ :CommentToggle<CR>
 -- vnoremap <space>/ :CommentToggle<CR>
+
+vim.keymap.set("n", "<CR>", "o<ESC>", { desc = "Increase window width" })
