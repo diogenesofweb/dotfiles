@@ -26,5 +26,7 @@ alias vis='nvim -S'
 alias nd='npm run dev'
 alias no='npm outdated'
 alias nog='npm outdated -g'
+alias pn=pnpm
 
 alias goose='/home/diogenes/code/diogenes/_go/goose/goose'
+

@@ -16,9 +16,7 @@
       {
         "language": [
           "javascript",
-          "javascriptreact",
-          "vue",
-          "svelte"
+          "javascriptreact"
         ],
         "path": "./snippets/javascript.json"
       },

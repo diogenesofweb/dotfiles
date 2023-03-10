@@ -1,2 +1,4 @@
 kitty.conf.bak
 nvim/spell
+.vscode
+lazy-lock.json

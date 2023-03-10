@@ -1,0 +1,40 @@
+{
+  "Clamp": {
+    "prefix": "clamp",
+    "body": ["clamp(${1:1rem}, ${2:5vw}, ${3:2.5rem})"],
+    "description": "Clamp"
+  },
+  "Media screen": {
+    "prefix": "@media",
+    "body": [
+      "@media only screen and (${1|min-width,max-width|}: ${2:740}px) { \n\t$3\n}"
+    ],
+    "description": "Media screen"
+  },
+  "Supports hover": {
+    "prefix": "@hover",
+    "body": ["@media (hover: hover) { \n\t$1\n}"],
+    "description": "Supports hover"
+  },
+  "background": {
+    "prefix": "bg",
+    "body": "background: ${0:#fff};",
+    "description": "background: image position/size repeat attachment box box"
+  }, 
+  "background-color": {
+    "prefix": "bgc",
+    "body": "background-color: ${0:#fff};"
+  }, 
+  "display: flex": {
+    "prefix": "df",
+    "body": "display: flex;"
+  }, 
+  "display: grid": {
+    "prefix": "dg",
+    "body": "display: flex;"
+  },
+  "!important": {
+    "prefix": "!",
+    "body": "!important"
+  } 
+}
