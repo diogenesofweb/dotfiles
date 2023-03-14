@@ -35,21 +35,22 @@ return {
       }
     },
     opts = function()
+      local luasnip = require("luasnip")
       local cmp = require("cmp")
 
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
-        enabled = function()
-          local context = require 'cmp.config.context'
-          if vim.api.nvim_get_mode().mode == 'c' then
-            return true
-          else
-            return not context.in_treesitter_capture("comment")
-                and not context.in_syntax_group("Comment")
-          end
-        end,
+        -- enabled = function()
+        --   local context = require 'cmp.config.context'
+        --   if vim.api.nvim_get_mode().mode == 'c' then
+        --     return true
+        --   else
+        --     return not context.in_treesitter_capture("comment")
+        --         and not context.in_syntax_group("Comment")
+        --   end
+        -- end,
         preselect = cmp.PreselectMode.None, -- for Svelte
         snippet = {
           expand = function(args)
@@ -66,6 +67,20 @@ return {
           -- ["<C-l>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true, }),
           ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
           ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+              luasnip.jump(1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp_signature_help", keyword_length = 1 },
