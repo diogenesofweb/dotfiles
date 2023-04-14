@@ -6,14 +6,13 @@ return {
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
+      -- 'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'onsails/lspkind.nvim',
-
       'saadparwaiz1/cmp_luasnip',
       {
         "L3MON4D3/LuaSnip",
-        version = "<CurrentMajor>.*",
+        version = "1.*",
         build = "make install_jsregexp",
         config = function()
           -- svelte snippets should not extend any other snippets ('js', 'css') in snips/package.json
@@ -22,7 +21,7 @@ return {
           local filetype_functions = require('luasnip.extras.filetype_functions')
 
           luasnip.setup({
-            history = true,
+            history = false,
             delete_check_events = "TextChanged",
             ft_func = filetype_functions.from_pos_or_filetype,
             load_ft_func = filetype_functions.extend_load_ft({
@@ -32,7 +31,7 @@ return {
 
           require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snips" } })
         end,
-      }
+      },
     },
     opts = function()
       local luasnip = require("luasnip")
@@ -84,7 +83,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp_signature_help", keyword_length = 1 },
-          { name = 'path' },
+          -- { name = 'path' },
           -- }, {
           { name = 'nvim_lsp',                keyword_length = 1 },
           -- { name = 'luasnip',                 max_item_count = 5, keyword_length = 1 },

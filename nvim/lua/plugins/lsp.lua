@@ -130,11 +130,11 @@ return {
         flags = lsp_flags,
       }
 
-      nvim_lsp.emmet_ls.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = { 'html', 'css', 'scss', 'postcss' },
-      })
+      -- nvim_lsp.emmet_ls.setup({
+      --   on_attach = on_attach,
+      --   capabilities = capabilities,
+      --   filetypes = { 'html', 'css', 'scss', 'postcss' },
+      -- })
 
       local servers = { 'html', 'cssls', 'vimls', 'sqlls' }
       for _, lsp in ipairs(servers) do
