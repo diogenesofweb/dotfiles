@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=xmodmap -e "keycode 94 = Shift_L"
+Icon=dialog-scripts
+Name=swap.desktop
+Path=
+Type=Application
+X-KDE-AutostartScript=true
+

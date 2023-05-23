@@ -70,3 +70,13 @@ ln -s ~/.dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 ln -s ~/.dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
 ln -s ~/.dotfiles/nvim/snips/javascript.json ~/.config/Code/User/snippets/javascript.json
 ```
+
+Remap keys
+
+```bash
+mv swap.desktop ~/.config/autostart
+```
+
+```bash
+chmod +x ~/.config/autostart/swap.desktop
+```
