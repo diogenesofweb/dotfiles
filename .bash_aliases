@@ -11,9 +11,11 @@ alias upgrade='sudo apt upgrade -y'
 alias gs='git status'
 alias gss='git status -s'
 alias gl='git log --graph --decorate --pretty=oneline --abbrev-commit'
+alias gaa='git add .'
 alias gcm='git commit -m'
 alias gcma='git add . && git commit -m'
-alias gaa='git add .'
+current="`date +'%Y-%m-%d %H:%M'`"
+alias gup='git add . && git commit -m "Up: $current"'
 alias gco='git checkout'
 alias gb='git branch'
 alias gg='git pull'
@@ -25,8 +27,7 @@ alias vis='nvim -S'
 
 alias nd='npm run dev'
 alias no='npm outdated'
-alias nog='npm outdated -g'
 alias pn=pnpm
+alias pno='pnpm outdated'
 
 alias goose='/home/diogenes/code/diogenes/_go/goose/goose'
-

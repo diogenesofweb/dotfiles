@@ -15,6 +15,7 @@ return {
         severity_sort = false,
         float = true,
       },
+      autoformat = false,
     },
     config = function()
       local nvim_lsp = require('lspconfig')
@@ -183,9 +184,9 @@ return {
         }
       )
 
-      vim.cmd([[
-        au BufRead,BufNewFile *.postcss set filetype=scss
-      ]])
+      -- vim.cmd([[
+      --   au BufRead,BufNewFile *.postcss set filetype=scss
+      -- ]])
     end,
   }
 }
