@@ -27,7 +27,8 @@ return {
           theme = "dropdown",
           layout_config = {
             height = 0.8
-          }
+          },
+          display_stat = false,
         }
       },
       extensions = {
@@ -43,31 +44,37 @@ return {
         }
       }
     },
-    dependencies = {
-      {
-        "nvim-telescope/telescope-fzy-native.nvim",
-        build = "make",
-        config = function()
-          require("telescope").load_extension("fzy_native")
-        end,
-      },
+    dependencies = {},
+  },
 
-      {
-        "nvim-telescope/telescope-ui-select.nvim",
-        config = function()
-          require("telescope").load_extension("ui-select")
-        end,
-      },
+  {
+    "nvim-telescope/telescope-fzy-native.nvim",
+    build = "make",
+    config = function()
+      require("telescope").load_extension("fzy_native")
+    end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").load_extension("ui-select")
+    end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
     },
   },
 
   {
     "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
     config = function()
       require("telescope").load_extension("file_browser")
     end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
   },
 }
