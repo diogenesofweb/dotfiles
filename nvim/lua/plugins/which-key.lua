@@ -24,7 +24,8 @@ return {
         c = { "<cmd>bp|bd #<cr>", "Close Buffer" },
         w = { "<cmd>w<cr>", "Save (Write)" },
 
-        y = { "<cmd>Format<cr>", "Format-prettier" },
+        -- y = { "<cmd>Format<cr>", "Format-prettier" },
+        y = { function() require("conform").format({ async = true, lsp_fallback = true }) end, "Conform Format" },
         h = { "<cmd>noh<cr>", "No highlighting" },
 
         ['2'] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -35,6 +36,11 @@ return {
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename Symbol" },
         d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics", },
+
+        m = {
+          name = "Mini",
+          m = { "<cmd>lua MiniFiles.open()<cr>", "Mini FIles" },
+        },
 
         e = { "<cmd>Telescope file_browser path=%:p:h<cr>", "File Browser" },
         -- e = {"<cmd>Telescope file_browser previewer=false path=%:p:h theme=dropdown layout_config={height=0.8}<cr>", "File Browser"},

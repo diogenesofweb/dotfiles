@@ -39,7 +39,7 @@
   },
   "const arrow function assignment": {
     "prefix": "cfn",
-    "body": "const ${1:name} = (${2:arguments}) => ${0}\n"
+    "body": "const ${1:name} = (${2}) => ${0}\n"
   },
   "const object": {
     "prefix": "cob",
@@ -81,20 +81,32 @@
 
   "named function": {
     "prefix": "ff",
-    "body": "function ${1:name} (${2:arguments}) {\n\t${0}\n}"
+    "body": "function ${1:name} (${2}) {\n\t${0}\n}"
+  },
+  "export named function": {
+    "prefix": "eff",
+    "body": "export function ${1:name} (${2}) {\n\t${0}\n}"
   },
   "async function": {
     "prefix": "aff",
-    "body": "async function ${1:name} (${2:arguments}) {\n\t${0}\n}"
+    "body": "async function ${1:name} (${2}) {\n\t${0}\n}"
+  },
+  "export async function": {
+    "prefix": "eaff",
+    "body": "export async function ${1:name} (${2}) {\n\t${0}\n}"
   },
 
   "arrow function": {
-    "prefix": "afn",
-    "body": "(${1:arguments}) => ${2:statement}"
+    "prefix": "fn",
+    "body": "(${0}) => {\n\t${1}\n}"
+  },
+  "arrow function inline": {
+    "prefix": "fni",
+    "body": "(${1}) => ${2}"
   },
   "async arrow function": {
-    "prefix": "aafn",
-    "body": "async (${1:arguments}) => {\n\t${0}\n}"
+    "prefix": "afn",
+    "body": "async (${1}) => {\n\t${0}\n}"
   },
 
   "console.log": {
@@ -147,7 +159,7 @@
   },
 
   "For Loop": {
-    "prefix": "for",
+    "prefix": "forl",
     "body": [
       "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
       "\tconst ${3:element} = ${2:array}[${1:index}];",
@@ -180,7 +192,7 @@
   },
 
   "If Statement": {
-    "prefix": "if",
+    "prefix": "ifs",
     "body": ["if (${1:condition}) {", "\t$0", "}"],
     "description": "If Statement"
   },
