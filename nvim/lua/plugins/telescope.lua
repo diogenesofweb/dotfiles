@@ -28,13 +28,13 @@ return {
           layout_config = {
             height = 0.8
           },
-          display_stat = false,
         }
       },
       extensions = {
         file_browser = {
           previewer = false,
           theme = "dropdown",
+          display_stat = false,
           layout_config = {
             height = 0.8
           }
