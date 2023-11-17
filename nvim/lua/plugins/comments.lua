@@ -12,6 +12,9 @@ return {
         -- Toggle comment on current line
         -- comment_line = 'gcc',
         comment_line = '<leader>/',
+
+        -- Toggle comment on visual selection
+        comment_visual = '<leader>/',
         -- Define 'comment' textobject (like `dgc` - delete whole comment block)
         textobject = 'gc',
       },

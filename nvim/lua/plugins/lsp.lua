@@ -117,24 +117,24 @@ return {
 
       nvim_lsp.svelte.setup {
         on_attach = on_attach,
-        
-        -- on_attach = function(client, bufnr)
-        --   client.server_capabilities.completionProvider.triggerCharacters = {
-        --     ".", "\"", "'", "`", "/", "@", "<",
-        --     -- ">",
-        --     "*", "#", "$", "+", "^", "(", "[", "@", "-",
-        --     ":", "|",
-        --   }
-        --   return on_attach(client, bufnr)
-        -- end,
-        
+
+        -- -- on_attach = function(client, bufnr)
+        -- --   client.server_capabilities.completionProvider.triggerCharacters = {
+        -- --     ".", "\"", "'", "`", "/", "@", "<",
+        -- --     -- ">",
+        -- --     "*", "#", "$", "+", "^", "(", "[", "@", "-",
+        -- --     ":", "|",
+        -- --   }
+        -- --   return on_attach(client, bufnr)
+        -- -- end,
+
         -- on_attach = function(client, bufnr)
         --   vim.api.nvim_create_autocmd("BufWritePost", {
-        --     pattern = { "*.js", "*.ts" },
+        --     pattern = { "*.js ", "*.ts" },
         --     callback = function(ctx)
         --       client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
         --     end,
-        --   })         
+        --   })
         --   return on_attach(client, bufnr)
         -- end,
 
