@@ -31,7 +31,15 @@
   }, 
   "display: grid": {
     "prefix": "dg",
-    "body": "display: flex;"
+    "body": "display: grid;"
+  },
+  "responsive grid columns": {
+    "prefix": "grc",
+    "body": "grid-template-columns: repeat(auto-fit, minmax(min(100%, ${0:10rem}), 1fr));"
+  },
+  "red box": {
+    "prefix": "box",
+    "body": "outline: 1px solid hsl(0 100% 50% / 50%);"
   },
   "!important": {
     "prefix": "!",
