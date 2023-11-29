@@ -41,6 +41,38 @@
     "prefix": "box",
     "body": "outline: 1px solid hsl(0 100% 50% / 50%);"
   },
+  "border radius": {
+    "prefix": "br",
+    "body": "border-radius: ${0:1rem};"
+  },
+  "padding inline": {
+    "prefix": "pi",
+    "body": "padding-inline: ${0:1rem};"
+  },
+  "padding block": {
+    "prefix": "pb",
+    "body": "padding-block: ${0:1rem};"
+  },
+  "margin inline": {
+    "prefix": "mi",
+    "body": "margin-inline: ${0:1rem};"
+  },
+  "margin block": {
+    "prefix": "mb",
+    "body": "margin-block: ${0:1rem};"
+  },
+  
+  "align-items": {
+    "prefix": "ai",
+    "body": "align-items: ${1|flex-start,flex-end,center,baseline,stretch,start,end,self-start,self-end|};",
+    "description": "initial value: stretch"
+  },
+  "justify-content": {
+    "prefix": "jc",
+    "body": "justify-content: ${1|flex-start,flex-end,center,space-between,space-around|};",
+    "description": "initial value: flex-start"
+  },
+
   "!important": {
     "prefix": "!",
     "body": "!important"

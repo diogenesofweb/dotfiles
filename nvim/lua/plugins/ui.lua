@@ -1,7 +1,7 @@
 return {
   {
     'akinsho/bufferline.nvim',
-    version = false,
+    event = "VeryLazy",
     opts = {
       options = {
         tab_size = 10,
