@@ -29,8 +29,8 @@ return {
         h = { "<cmd>noh<cr>", "No highlighting" },
 
         ['2'] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        i = { "<cmd>lua vim.diagnostic.goto_next()<cr>zz", "Next Problem" },
-        o = { "<cmd>lua vim.diagnostic.goto_prev()<cr>zz", "Prev Problem" },
+        n = { "<cmd>lua vim.diagnostic.goto_next()<cr>zz", "Next Problem" },
+        N = { "<cmd>lua vim.diagnostic.goto_prev()<cr>zz", "Prev Problem" },
         -- u = {"<cmd>lua vim.diagnostic.open_float()<cr>", "Open float (diagnostic)"},
 
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },

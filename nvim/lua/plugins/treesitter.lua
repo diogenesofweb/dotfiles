@@ -37,7 +37,7 @@ return {
     context_commentstring = { enable = true, enable_autocmd = false },
     refactor = {
       highlight_definitions = {
-        enable = true,
+        enable = false,
         clear_on_cursor_move = true,
       },
       highlight_current_scope = { enable = false },

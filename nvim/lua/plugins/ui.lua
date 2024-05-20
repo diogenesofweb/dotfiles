@@ -11,11 +11,11 @@ return {
     },
     config = function(_, opts)
       vim.keymap.set(
-        "n", "<A-i>", "<cmd>BufferLineCyclePrev<cr>",
+        "n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>",
         { silent = true, desc = "Prev buffer" }
       )
       vim.keymap.set(
-        "n", "<A-o>", "<cmd>BufferLineCycleNext<cr>",
+        "n", "<A-l>", "<cmd>BufferLineCycleNext<cr>",
         { silent = true, desc = "Next buffer" }
       )
 

@@ -5,20 +5,20 @@
     "description": "Clamp"
   },
   "Media screen": {
-    "prefix": "@media",
+    "prefix": "@media-width",
     "body": [
-      "@media only screen and (${1|min-width,max-width|}: ${2:740}px) { \n\t$3\n}"
+      "@media (${1|min-width,max-width|}: ${2:740}px) { \n\t$3\n}"
     ],
     "description": "Media screen"
   },
   "Supports hover": {
-    "prefix": "@hover",
+    "prefix": "@hover-support",
     "body": ["@media (hover: hover) { \n\t$1\n}"],
     "description": "Supports hover"
   },
   "background": {
     "prefix": "bg",
-    "body": "background: ${0:#fff};",
+    "body": "background: ${0:var(--bg)};",
     "description": "background: image position/size repeat attachment box box"
   }, 
   "background-color": {
@@ -41,9 +41,13 @@
     "prefix": "box",
     "body": "outline: 1px solid hsl(0 100% 50% / 50%);"
   },
+  "border": {
+    "prefix": "bor",
+    "body": "border: ${0:var(--border)};"
+  },
   "border radius": {
     "prefix": "br",
-    "body": "border-radius: ${0:1rem};"
+    "body": "border-radius: ${0:var(--br)};"
   },
   "padding inline": {
     "prefix": "pi",

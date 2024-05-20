@@ -1,4 +1,13 @@
 {
+  "new Set()": {
+    "prefix": "setnew",
+    "body": "const ${0:set} = new Set()"
+  },
+  "new Map()": {
+    "prefix": "mapnew",
+    "body": "const ${0:map} = new Map()"
+  },
+
   "await": {
     "prefix": "aw",
     "body": "await ${0}"
