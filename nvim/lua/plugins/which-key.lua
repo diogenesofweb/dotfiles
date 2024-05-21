@@ -64,6 +64,8 @@ return {
 
         l = {
           name = "LSP",
+          h = { "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", "Inlay Hints" },
+
           e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Open float (diagnostic)" },
           o = { "<cmd>OrganizeImports<cr>", "Organize Imports" },
           f = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format" },
