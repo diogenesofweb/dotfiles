@@ -2,8 +2,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "jose-elias-alvarez/typescript.nvim",
+      -- "jose-elias-alvarez/typescript.nvim",
       "nvim-telescope/telescope.nvim",
+
+      "folke/which-key.nvim",
     },
     opts = {
       -- options for vim.diagnostic.config()
@@ -105,58 +107,105 @@ return {
         }
       }
 
-      require("typescript").setup({
-        disable_commands = false,
-        debug = false,
-        go_to_source_definition = { fallback = true, },
-        server = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-          -- init_options = {
-          --   preferences = {importModuleSpecifierEnding = "js"},
-          -- },
-          settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
+      local inlay_hints_settings = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "literal",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = false,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      }
+
+      -- require("typescript").setup({
+      --   disable_commands = false,
+      --   debug = false,
+      --   go_to_source_definition = { fallback = true, },
+      --   server = {
+      --     on_attach = on_attach,
+      --     capabilities = capabilities,
+      -- init_options = {
+      --   preferences = {importModuleSpecifierEnding = "js"},
+      -- },
+      --     settings = {
+      --       typescript = {
+      --         inlayHints = inlay_hints_settings,
+      --       },
+      --       javascript = {
+      --         inlayHints = inlay_hints_settings,
+      --       },
+      --     }
+      --   },
+      -- })
+
+      local manage_imports = function()
+        local wk = require("which-key")
+        wk.register({
+          ["<leader>l"] = {
+            o = { function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.organizeImports" },
+                  diagnostics = {},
+                },
+              })
+            end,
+              "Organize Imports"
             },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
+
+            r = { function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.removeUnused" },
+                  diagnostics = {},
+                },
+              })
+            end,
+              "Remove Unused Imports"
             },
-          }
+          },
+        })
+      end
+
+      nvim_lsp.tsserver.setup {
+        -- on_attach = on_attach,
+        capabilities = capabilities,
+        flags = lsp_flags,
+
+        settings = {
+          typescript = {
+            inlayHints = inlay_hints_settings,
+          },
+          javascript = {
+            inlayHints = inlay_hints_settings,
+          },
+          completions = {
+            completeFunctionCalls = true,
+          },
         },
-      })
+
+        on_attach = function(client, bufnr)
+          manage_imports()
+          return on_attach(client, bufnr)
+        end,
+      }
 
 
       nvim_lsp.svelte.setup {
-        on_attach = on_attach,
+        -- on_attach = on_attach,
+        on_attach = function(client, bufnr)
+          manage_imports()
 
-        -- -- on_attach = function(client, bufnr)
-        -- --   client.server_capabilities.completionProvider.triggerCharacters = {
-        -- --     ".", "\"", "'", "`", "/", "@", "<",
-        -- --     -- ">",
-        -- --     "*", "#", "$", "+", "^", "(", "[", "@", "-",
-        -- --     ":", "|",
-        -- --   }
-        -- --   return on_attach(client, bufnr)
-        -- -- end,
+          return on_attach(client, bufnr)
+        end,
+
+        -- on_attach = function(client, bufnr)
+        --   client.server_capabilities.completionProvider.triggerCharacters = { ".", "\"", "'", "`", "/", "@", "<", "*", "#", "$", "+", "^", "(", "[", "@", "-", ":", "|", }
+        --   return on_attach(client, bufnr)
+        -- end,
 
         -- on_attach = function(client, bufnr)
         --   vim.api.nvim_create_autocmd("BufWritePost", {
