@@ -10,7 +10,7 @@ return {
     opts = {
       -- options for vim.diagnostic.config()
       diagnostics = {
-        virtual_text = false,
+        virtual_text = true,
         signs = false,
         update_in_insert = false,
         underline = true,
@@ -144,25 +144,13 @@ return {
         wk.register({
           ["<leader>l"] = {
             o = { function()
-              vim.lsp.buf.code_action({
-                apply = true,
-                context = {
-                  only = { "source.organizeImports" },
-                  diagnostics = {},
-                },
-              })
+              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports" }, }, })
             end,
               "Organize Imports"
             },
 
             r = { function()
-              vim.lsp.buf.code_action({
-                apply = true,
-                context = {
-                  only = { "source.removeUnused" },
-                  diagnostics = {},
-                },
-              })
+              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused" }, }, })
             end,
               "Remove Unused Imports"
             },
@@ -197,6 +185,15 @@ return {
       nvim_lsp.svelte.setup {
         -- on_attach = on_attach,
         on_attach = function(client, bufnr)
+          -- HACK: to make Svelte files work with LSP when updates are made to project ts files
+          vim.api.nvim_create_autocmd("BufWritePost", {
+            pattern = { "*.js", "*.ts" },
+            callback = function(ctx)
+              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+            end,
+          })
+
+
           manage_imports()
 
           return on_attach(client, bufnr)
@@ -204,16 +201,6 @@ return {
 
         -- on_attach = function(client, bufnr)
         --   client.server_capabilities.completionProvider.triggerCharacters = { ".", "\"", "'", "`", "/", "@", "<", "*", "#", "$", "+", "^", "(", "[", "@", "-", ":", "|", }
-        --   return on_attach(client, bufnr)
-        -- end,
-
-        -- on_attach = function(client, bufnr)
-        --   vim.api.nvim_create_autocmd("BufWritePost", {
-        --     pattern = { "*.js ", "*.ts" },
-        --     callback = function(ctx)
-        --       client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-        --     end,
-        --   })
         --   return on_attach(client, bufnr)
         -- end,
 
