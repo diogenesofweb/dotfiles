@@ -44,7 +44,6 @@ return {
     },
     ensure_installed = {
       "bash",
-      "help",
       "html",
       "javascript",
       "json",
@@ -54,6 +53,7 @@ return {
       "query",
       "tsx",
       "typescript",
+      "vimdoc",
       "vim",
       "yaml",
       "go",

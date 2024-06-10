@@ -35,6 +35,12 @@ Kitty terminal
 ln -s ~/.dotfiles/kitty ~/.config/kitty
 ```
 
+add to `~/.local/share/kservices5/ServiceMenus` file _openKittyHere.desktop_
+
+```
+ln -s ~/.dotfiles/kitty ~/.config/kitty
+```
+
 Some aliases
 
 ```shell
