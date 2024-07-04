@@ -110,9 +110,9 @@ return {
           end,
         },
         experimental = {
-          ghost_text = {
-            hl_group = "LspCodeLens",
-          },
+          -- ghost_text = {
+          --   hl_group = "LspCodeLens",
+          -- },
         },
       }
     end,
