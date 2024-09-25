@@ -141,19 +141,21 @@ return {
 
       local manage_imports = function()
         local wk = require("which-key")
-        wk.register({
-          ["<leader>l"] = {
-            o = { function()
-              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports" }, }, })
+        wk.add({
+          mode = { "n", "v" },
+          { 
+            "<leader>lo", 
+            function() 
+              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.organizeImports" }, }, }) 
             end,
-              "Organize Imports"
-            },
-
-            r = { function()
-              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused" }, }, })
+            desc = "Organize Imports" 
+          },
+          { 
+            "<leader>y", 
+            function() 
+              vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused" }, }, }) 
             end,
-              "Remove Unused Imports"
-            },
+            desc = "Remove Unused Imports" 
           },
         })
       end
