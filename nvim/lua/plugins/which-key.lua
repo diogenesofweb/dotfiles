@@ -99,11 +99,11 @@ return {
       -- { "<leader>Ur", "<cmd>set rnu!<cr>", desc = "Toggle Relative Line Numbers" },
 
       { "<leader>l", group = "LSP" },
-      { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
-      { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+      -- { "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
+      -- { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
+      { "<leader>ls", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
       { "<leader>le", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Open float (diagnostic)" },
       { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", desc = "Format" },
-      { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
       { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
 
       { "<leader>m", group = "Mini" },

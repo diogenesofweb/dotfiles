@@ -151,7 +151,7 @@ return {
             desc = "Organize Imports" 
           },
           { 
-            "<leader>y", 
+            "<leader>lr", 
             function() 
               vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused" }, }, }) 
             end,
