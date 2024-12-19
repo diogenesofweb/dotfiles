@@ -6,9 +6,7 @@
   },
   "Media screen": {
     "prefix": "@media-width",
-    "body": [
-      "@media (${1|min-width,max-width|}: ${2:740}px) { \n\t$3\n}"
-    ],
+    "body": ["@media (${1|min-width,max-width|}: ${2:740}px) { \n\t$3\n}"],
     "description": "Media screen"
   },
   "Supports hover": {
@@ -20,15 +18,15 @@
     "prefix": "bg",
     "body": "background: ${0:var(--bg)};",
     "description": "background: image position/size repeat attachment box box"
-  }, 
+  },
   "background-color": {
     "prefix": "bgc",
     "body": "background-color: ${0:#fff};"
-  }, 
+  },
   "display: flex": {
     "prefix": "df",
     "body": "display: flex;"
-  }, 
+  },
   "display: grid": {
     "prefix": "dg",
     "body": "display: grid;"
@@ -49,14 +47,33 @@
     "prefix": "br",
     "body": "border-radius: ${0:var(--br)};"
   },
+
   "padding inline": {
     "prefix": "pi",
     "body": "padding-inline: ${0:1rem};"
   },
+  "padding inline start": {
+    "prefix": "pis",
+    "body": "padding-inline-start: ${0:1rem};"
+  },
+  "padding inline end": {
+    "prefix": "pie",
+    "body": "padding-inline-end: ${0:1rem};"
+  },
+
   "padding block": {
     "prefix": "pb",
     "body": "padding-block: ${0:1rem};"
   },
+  "padding block start": {
+    "prefix": "pbs",
+    "body": "padding-block-start: ${0:1rem};"
+  },
+  "padding block end": {
+    "prefix": "pbe",
+    "body": "padding-block-end: ${0:1rem};"
+  },
+
   "margin inline": {
     "prefix": "mi",
     "body": "margin-inline: ${0:1rem};"
@@ -65,7 +82,7 @@
     "prefix": "mb",
     "body": "margin-block: ${0:1rem};"
   },
-  
+
   "align-items": {
     "prefix": "ai",
     "body": "align-items: ${1|flex-start,flex-end,center,baseline,stretch,start,end,self-start,self-end|};",
@@ -75,10 +92,5 @@
     "prefix": "jc",
     "body": "justify-content: ${1|flex-start,flex-end,center,space-between,space-around|};",
     "description": "initial value: flex-start"
-  },
-
-  "!important": {
-    "prefix": "!",
-    "body": "!important"
-  } 
+  }
 }

@@ -1,0 +1,112 @@
+{
+  "sveltekit-data": {
+    "prefix": "skDataProps",
+    "body": [
+      "/** @type {{ data: import('./\\$types').PageData }} */",
+      "let { data } = \\$props() \n${0}"
+    ]
+  },
+
+  "svelte-props": {
+    "prefix": "sProps",
+    "body": "let { ${1:prop} } = \\$props() \n\t${0}"
+  },
+  "svelte-state": {
+    "prefix": "sState",
+    "body": "let { ${1:name} } = \\$state() \n\t${0}"
+  },
+  "svelte-state": {
+    "prefix": "sDerived",
+    "body": "let { ${1:name} } = \\$derived() \n\t${0}"
+  },
+
+  "svelte-component-format": {
+    "prefix": "scf",
+    "body": [
+      "<script>",
+      "\t${1:// your script goes here}",
+      "</script>",
+      "",
+      "${2:<!-- markup (zero or more items) goes here -->}",
+      "",
+      "<style>",
+      "\t${3:/* your styles go here */}",
+      "</style>",
+      ""
+    ],
+    "description": "add a script to your svelte file"
+  },
+
+  "svelte-if-block": {
+    "prefix": "sIf-block",
+    "body": ["{#if ${1:condition}}", "\t${2: <!-- content here -->}", "{/if}"],
+    "description": "if block"
+  },
+  "svelte-if-else-block": {
+    "prefix": "sIfElse-block",
+    "body": [
+      "{#if ${1:condition}}",
+      "\t${2: <!-- content here -->}",
+      "{:else}",
+      "\t${3: <!-- else content here -->}",
+      "{/if}"
+    ],
+    "description": "if else block"
+  },
+  "svelte-else-block": {
+    "prefix": "sElse-block",
+    "body": ["{:else}", "\t${1: <!-- else content here -->}"],
+    "description": "else block"
+  },
+  "svelte-else-if-block": {
+    "prefix": "s-else-if-block",
+    "body": [
+      "{:else if ${1: otherCondition}}",
+      "\t${2: <!-- else if content here -->}"
+    ],
+    "description": "else if block"
+  },
+
+  "svelte-each-block": {
+    "prefix": "sEach-block",
+    "body": [
+      "{#each ${1:items} as ${2:item}}",
+      "\t${3: <!-- content here -->}",
+      "{/each}"
+    ],
+    "description": "each block"
+  },
+
+  "svelte-on-event-inline": {
+    "prefix": "sOnEventInline",
+    "body": ["on${1:click}=\"{() => ${2:count += 1}}\""],
+    "description": "on event inline"
+  },
+
+  "svelte-slot": {
+    "prefix": "sSlot",
+    "body": ["<slot>${1:<!-- optional fallback -->}</slot>"],
+    "description": "slot"
+  },
+
+  "svelte-component": {
+    "prefix": "s-component",
+    "body": ["<svelte:component this={${1:component}} />"],
+    "description": "svelte:component"
+  },
+  "svelte-window": {
+    "prefix": "s-window",
+    "body": ["<svelte:window />"],
+    "description": "svelte:window"
+  },
+  "svelte-body": {
+    "prefix": "s-body",
+    "body": ["<svelte:body />"],
+    "description": "svelte:body"
+  },
+  "svelte-head": {
+    "prefix": "s-head",
+    "body": ["<svelte:head>", "\t${1:<!-- head content -->}", "</svelte:head>"],
+    "description": "svelte:head"
+  }
+}

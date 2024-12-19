@@ -7,6 +7,7 @@
     "snippets": [
       {
         "language": [
+          "svelte",
           "css",
           "scss",
           "sass"
@@ -15,6 +16,7 @@
       },
       {
         "language": [
+          "svelte",
           "typescript",
           "typescriptreact",
           "javascript",
