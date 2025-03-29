@@ -1,28 +1,37 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    -- event = "LazyFile",
     dependencies = {
-      -- "jose-elias-alvarez/typescript.nvim",
       "nvim-telescope/telescope.nvim",
       'saghen/blink.cmp',
       "folke/which-key.nvim",
+    },
 
-    },
-    opts = {
-      -- options for vim.diagnostic.config()
-      diagnostics = {
-        virtual_text = true,
-        signs = false,
-        update_in_insert = false,
-        underline = true,
-        severity_sort = false,
-        float = true,
-      },
-      autoformat = false,
-    },
+-- opts = function(_, op)
+--    local op =  {
+--       -- options for vim.diagnostic.config()
+--       diagnostics = {
+--         virtual_text = false,
+--         current_line = true,
+--         virtual_lines = true,
+--         inlay_hint = true,
+--
+--         signs = false,
+--         update_in_insert = false,
+--         underline = true,
+--         severity_sort = false,
+--         float = true,
+--       },
+--       autoformat = false,
+--     }
+-- return op
+--   end,
+
     config = function()
       local nvim_lsp = require('lspconfig')
       local builtin = require('telescope.builtin')
+
 
       -- Mappings.
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -79,6 +88,19 @@ return {
         },
       }
 
+
+      vim.diagnostic.config({
+        virtual_text = false,
+        signs = false,
+        -- current_line = true,
+        -- virtual_lines = true,
+        update_in_insert = false,
+        underline = true,
+        severity_sort = false,
+        float = true,
+        -- inlay_hints = true,
+      })
+
       local lsp_flags = { debounce_text_changes = 150, }
 
       nvim_lsp.jsonls.setup {
@@ -101,10 +123,6 @@ return {
                 fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
                 url = "https://json.schemastore.org/prettierrc.json"
               },
-              {
-                fileMatch = { "now.json", "vercel.json" },
-                url = "https://json.schemastore.org/now.json"
-              },
             }
           }
         }
@@ -120,27 +138,6 @@ return {
         includeInlayVariableTypeHints = false,
         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
       }
-
-      -- require("typescript").setup({
-      --   disable_commands = false,
-      --   debug = false,
-      --   go_to_source_definition = { fallback = true, },
-      --   server = {
-      --     on_attach = on_attach,
-      --     capabilities = capabilities,
-      -- init_options = {
-      --   preferences = {importModuleSpecifierEnding = "js"},
-      -- },
-      --     settings = {
-      --       typescript = {
-      --         inlayHints = inlay_hints_settings,
-      --       },
-      --       javascript = {
-      --         inlayHints = inlay_hints_settings,
-      --       },
-      --     }
-      --   },
-      -- })
 
       local manage_imports = function()
         local wk = require("which-key")
@@ -256,16 +253,16 @@ return {
         end
       })
 
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-          virtual_text = false,
-          signs = false,
-          update_in_insert = false,
-          underline = true,
-          severity_sort = false,
-          float = true,
-        }
-      )
+      -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+      --   vim.lsp.diagnostic.on_publish_diagnostics, {
+      --     virtual_text = false,
+      --     signs = false,
+      --     update_in_insert = false,
+      --     underline = true,
+      --     severity_sort = false,
+      --     float = true,
+      --   }
+      -- )
 
       -- vim.cmd([[
       --   au BufRead,BufNewFile *.postcss set filetype=scss

@@ -13,11 +13,11 @@
   },
   "svelte-state": {
     "prefix": "sState",
-    "body": "let { ${1:name} } = \\$state() \n\t${0}"
+    "body": "let ${1:name} = \\$state(${2:false}) \n\t${0}"
   },
-  "svelte-state": {
+  "svelte-derived": {
     "prefix": "sDerived",
-    "body": "let { ${1:name} } = \\$derived() \n\t${0}"
+    "body": "let ${1:name} = \\$derived() \n\t${0}"
   },
 
   "svelte-component-format": {
